@@ -7,11 +7,10 @@ use App\Domain\Booking\Entity\TransferObject\MovieShowDto;
 class MovieShow
 {
     private int $id;
-    private string $movieTitle;
+    private Movie $movie;
     private string $showDate;
     private string $startTime;
     private string $endTime;
-    private string $duration;
 
     public function getId(): int
     {
@@ -22,15 +21,15 @@ class MovieShow
     {
         $this->id = $id;
     }
-
-    public function getMovieTitle(): string
+    
+    public function getMovie(): Movie
     {
-        return $this->movieTitle;
+        return $this->movie;
     }
 
-    public function setMovieTitle(string $movieTitle): void
+    public function setMovie(Movie $movie): void
     {
-        $this->movieTitle = $movieTitle;
+        $this->movie = $movie;
     }
 
     public function getShowDate(): string
@@ -61,15 +60,5 @@ class MovieShow
     public function setEndTime(string $endTime): void
     {
         $this->endTime = $endTime;
-    }
-
-    public function getDuration(): string
-    {
-        return $this->duration;
-    }
-
-    public function setDuration(string $duration): void
-    {
-        $this->duration = $duration;
     }
 }
