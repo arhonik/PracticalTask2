@@ -2,8 +2,6 @@
 
 namespace App\Domain\Booking\Entity\ValueObject;
 
-use App\Domain\Booking\Entity\TransferObject\ClientDto;
-
 class Client
 {
     private string $name;
@@ -13,15 +11,5 @@ class Client
     {
         $this->name = $name;
         $this->phone = $phone;
-    }
-
-    public function getName(): string
-    {
-        return $this->name;
-    }
-
-    public function getPhone(): string
-    {
-        return $this->phone;
     }
 }
