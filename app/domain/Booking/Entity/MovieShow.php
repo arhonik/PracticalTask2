@@ -2,15 +2,13 @@
 
 namespace App\Domain\Booking\Entity;
 
-use App\Domain\Booking\Entity\TransferObject\MovieShowDto;
+use app\domain\Booking\Entity\ValueObject\DateTimeOfMovie;
 
 class MovieShow
 {
     private int $id;
     private Movie $movie;
-    private string $showDate;
-    private string $startTime;
-    private string $endTime;
+    private DateTimeOfMovie $dateTimeOfMovie;
     private int $numberOfTicket;
 
     public function getId(): int
@@ -33,34 +31,14 @@ class MovieShow
         $this->movie = $movie;
     }
 
-    public function getShowDate(): string
+    public function getDateTimeOfMovie(): DateTimeOfMovie
     {
-        return $this->showDate;
+        return $this->dateTimeOfMovie;
     }
 
-    public function setShowDate(string $showDate): void
+    public function setDateTimeOfMovie(DateTimeOfMovie $dateTimeOfMovie): void
     {
-        $this->showDate = $showDate;
-    }
-
-    public function getStartTime(): string
-    {
-        return $this->startTime;
-    }
-
-    public function setStartTime(string $startTime): void
-    {
-        $this->startTime = $startTime;
-    }
-
-    public function getEndTime(): string
-    {
-        return $this->endTime;
-    }
-
-    public function setEndTime(string $endTime): void
-    {
-        $this->endTime = $endTime;
+        $this->dateTimeOfMovie = $dateTimeOfMovie;
     }
 
     public function getNumberOfTicket(): int
