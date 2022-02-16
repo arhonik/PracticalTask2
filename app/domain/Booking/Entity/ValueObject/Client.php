@@ -9,10 +9,10 @@ class Client
     private string $name;
     private string $phone;
 
-    public function fromDto(ClientDto $client)
+    public function __construct(string $name, string $phone)
     {
-        $this->name = $client->name;
-        $this->phone = $client->phone;
+        $this->name = $name;
+        $this->phone = $phone;
     }
 
     public function getName(): string
@@ -20,19 +20,8 @@ class Client
         return $this->name;
     }
 
-    public function setName(string $name): void
-    {
-        $this->name = $name;
-    }
-
     public function getPhone(): string
     {
         return $this->phone;
     }
-
-    public function setPhone(string $phone): void
-    {
-        $this->phone = $phone;
-    }
-
 }
