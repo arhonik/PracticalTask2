@@ -19,14 +19,4 @@ class DateTimeOfMovie
     {
         return $this->date;
     }
-
-    public function getStartTime(): string
-    {
-        return $this->startTime;
-    }
-
-    public function getEndTime(): string
-    {
-        return $this->endTime;
-    }
 }
