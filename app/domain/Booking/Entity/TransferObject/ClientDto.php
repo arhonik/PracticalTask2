@@ -4,8 +4,8 @@ namespace App\Domain\Booking\Entity\TransferObject;
 
 class ClientDto
 {
-    private string $name;
-    private string $phone;
+    public string $name;
+    public string $phone;
 
     public function load(?array $data)
     {
