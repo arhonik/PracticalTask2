@@ -33,11 +33,6 @@ class MovieShow
         return $this->dateTimeOfMovie;
     }
 
-    public function getNumberOfTicket(): int
-    {
-        return $this->numberOfTicket;
-    }
-
     public function checkIfFreePlaces(): bool
     {
         if ((100 - $this->numberOfTicket) > 0) {
