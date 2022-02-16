@@ -4,7 +4,7 @@ namespace app\domain\Booking\Entity\TransferObject;
 
 class MovieDto
 {
-    private string $id;
+    private int $id;
 
     public function load(?array $data)
     {
