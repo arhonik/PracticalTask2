@@ -7,12 +7,13 @@ class Ticket
     private int $id;
     private string $clientName;
     private string $phoneClient;
-    private string $film;
+    private string $movie;
     private string $date;
     private string $duration;
 
     public function __construct()
     {
+
     }
 
 }
