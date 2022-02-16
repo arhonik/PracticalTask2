@@ -13,19 +13,14 @@ class MovieShow
     private string $endTime;
     private string $duration;
 
-    public function setId(int $id): void
-    {
-        $this->id = $id;
-    }
-
     public function getId(): int
     {
         return $this->id;
     }
 
-    public function setMovieTitle(string $movieTitle): void
+    public function setId(int $id): void
     {
-        $this->movieTitle = $movieTitle;
+        $this->id = $id;
     }
 
     public function getMovieTitle(): string
@@ -33,9 +28,9 @@ class MovieShow
         return $this->movieTitle;
     }
 
-    public function setShowDate(string $showDate): void
+    public function setMovieTitle(string $movieTitle): void
     {
-        $this->showDate = $showDate;
+        $this->movieTitle = $movieTitle;
     }
 
     public function getShowDate(): string
@@ -43,9 +38,9 @@ class MovieShow
         return $this->showDate;
     }
 
-    public function setStartTime(string $startTime): void
+    public function setShowDate(string $showDate): void
     {
-        $this->startTime = $startTime;
+        $this->showDate = $showDate;
     }
 
     public function getStartTime(): string
@@ -53,9 +48,9 @@ class MovieShow
         return $this->startTime;
     }
 
-    public function setEndTime(string $endTime): void
+    public function setStartTime(string $startTime): void
     {
-        $this->endTime = $endTime;
+        $this->startTime = $startTime;
     }
 
     public function getEndTime(): string
@@ -63,13 +58,18 @@ class MovieShow
         return $this->endTime;
     }
 
-    public function setDuration(string $duration): void
+    public function setEndTime(string $endTime): void
     {
-        $this->duration = $duration;
+        $this->endTime = $endTime;
     }
 
     public function getDuration(): string
     {
         return $this->duration;
+    }
+
+    public function setDuration(string $duration): void
+    {
+        $this->duration = $duration;
     }
 }
