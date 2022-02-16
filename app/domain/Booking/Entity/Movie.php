@@ -8,14 +8,11 @@ class Movie
     private string $title;
     private string $duration;
 
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
-    public function setId(int $id): void
+    public function __construct(int $id, string $title, string $duration)
     {
         $this->id = $id;
+        $this->title = $title;
+        $this->duration = $duration;
     }
 
     public function getTitle(): string
@@ -23,18 +20,8 @@ class Movie
         return $this->title;
     }
 
-    public function setTitle(string $title): void
-    {
-        $this->title = $title;
-    }
-
     public function getDuration(): string
     {
         return $this->duration;
-    }
-
-    public function setDuration(string $duration): void
-    {
-        $this->duration = $duration;
     }
 }
