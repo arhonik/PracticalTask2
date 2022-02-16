@@ -2,11 +2,10 @@
 
 namespace App\Domain\Booking\Entity\TransferObject;
 
-class BookingDto
+class ClientDto
 {
     private string $name;
     private string $phone;
-    private int $movieShow;
 
     public function load(?array $data)
     {
@@ -16,7 +15,6 @@ class BookingDto
 
         $this->name = $data["name"];
         $this->phone = $data["phone"];
-        $this->movieShow = $data["movieShow"];
     }
 
 }
