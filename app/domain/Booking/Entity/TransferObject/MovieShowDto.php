@@ -1,10 +1,10 @@
 <?php
 
-namespace app\domain\Booking\Entity\TransferObject;
+namespace App\Domain\Booking\Entity\TransferObject;
 
-class MovieDto
+class MovieShowDto
 {
-    private int $id;
+    public int $id;
 
     public function load(?array $data)
     {
@@ -12,6 +12,6 @@ class MovieDto
             throw new \InvalidArgumentException('Error type');
         }
 
-        $this->id = $data["movieId"];
+        $this->id = $data["movieShowId"];
     }
 }
