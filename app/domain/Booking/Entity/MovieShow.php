@@ -41,4 +41,9 @@ class MovieShow
             return false;
         }
     }
+
+    public function bookPlace()
+    {
+        $this->numberOfTicket = $this->numberOfTicket + 1;
+    }
 }
