@@ -11,6 +11,7 @@ class MovieShow
     private string $showDate;
     private string $startTime;
     private string $endTime;
+    private int $numberOfTicket;
 
     public function getId(): int
     {
@@ -21,7 +22,7 @@ class MovieShow
     {
         $this->id = $id;
     }
-    
+
     public function getMovie(): Movie
     {
         return $this->movie;
@@ -60,5 +61,15 @@ class MovieShow
     public function setEndTime(string $endTime): void
     {
         $this->endTime = $endTime;
+    }
+
+    public function getNumberOfTicket(): int
+    {
+        return $this->numberOfTicket;
+    }
+    
+    public function setNumberOfTicket(int $numberOfTicket): void
+    {
+        $this->numberOfTicket = $numberOfTicket;
     }
 }
