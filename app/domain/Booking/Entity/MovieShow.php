@@ -67,7 +67,7 @@ class MovieShow
     {
         return $this->numberOfTicket;
     }
-    
+
     public function setNumberOfTicket(int $numberOfTicket): void
     {
         $this->numberOfTicket = $numberOfTicket;
