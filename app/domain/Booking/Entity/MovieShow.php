@@ -10,17 +10,20 @@ class MovieShow
     private Movie $movie;
     private DateTimeOfMovie $dateTimeOfMovie;
     private int $numberOfTicket;
+    private int $numberOfPlaces;
 
     public function __construct(
         int $id,
         Movie $movie,
         DateTimeOfMovie $dateTimeOfMovie,
-        int $numberOfTicket
+        int $numberOfTicket,
+        int $numberOfPlaces
     ) {
         $this->id = $id;
         $this->movie = $movie;
         $this->dateTimeOfMovie = $dateTimeOfMovie;
         $this->numberOfTicket = $numberOfTicket;
+        $this->numberOfPlaces = $numberOfPlaces;
     }
 
     public function getMovie(): Movie
@@ -35,7 +38,7 @@ class MovieShow
 
     public function checkIfFreePlaces(): bool
     {
-        if ((100 - $this->numberOfTicket) > 0) {
+        if (($this->numberOfPlaces - $this->numberOfTicket) > 0) {
             return true;
         } else {
             return false;
