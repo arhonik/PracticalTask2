@@ -12,4 +12,14 @@ class Client
         $this->name = $name;
         $this->phone = $phone;
     }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getPhone(): string
+    {
+        return $this->phone;
+    }
 }
