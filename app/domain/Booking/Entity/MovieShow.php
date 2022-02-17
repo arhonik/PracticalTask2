@@ -8,16 +8,16 @@ class MovieShow
 {
     private int $id;
     private Movie $movie;
-    private DateTimeOfMovie $dateTimeOfMovie;
+    private movieSchedule $dateTimeOfMovie;
     private int $numberOfTicket;
     private int $numberOfPlaces;
 
     public function __construct(
-        int $id,
-        Movie $movie,
-        DateTimeOfMovie $dateTimeOfMovie,
-        int $numberOfTicket,
-        int $numberOfPlaces
+        int           $id,
+        Movie         $movie,
+        movieSchedule $dateTimeOfMovie,
+        int           $numberOfTicket,
+        int           $numberOfPlaces
     ) {
         $this->id = $id;
         $this->movie = $movie;
@@ -31,7 +31,7 @@ class MovieShow
         return $this->movie;
     }
 
-    public function getDateTimeOfMovie(): DateTimeOfMovie
+    public function getDateTimeOfMovie(): movieSchedule
     {
         return $this->dateTimeOfMovie;
     }
