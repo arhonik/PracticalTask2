@@ -54,7 +54,7 @@ class MovieShowRepository implements MovieShowRepositoryInterface
                 "+79021879474"
             ),
             "Venom 2",
-            "10",
+            "10 октября",
             "21:10"
         );
         $ticket3 = new \App\Domain\Booking\Entity\Ticket(
