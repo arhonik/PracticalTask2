@@ -21,7 +21,7 @@ class MovieShowService
             $client,
             $schedule->getDate(),
             $movie->getTitle(),
-            $movie->getDuration()
+            $schedule->getStartTime()
         );
         $movieShow->bookPlace($ticket);
     }
