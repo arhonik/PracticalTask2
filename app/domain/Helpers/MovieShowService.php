@@ -21,8 +21,6 @@ class MovieShowService
             $movieShow->getMovie()->getTitle(),
             $movieShow->getMovie()->getDuration()
         );
-        $bookingRepository = new BookingRepository();
-        $bookingRepository->save($ticket);
-        $movieShow->bookPlace();
+        $movieShow->bookPlace($ticket);
     }
 }
