@@ -25,4 +25,29 @@ class Ticket
         $this->date = $date;
         $this->duration = $duration;
     }
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function getClient(): Client
+    {
+        return $this->client;
+    }
+
+    public function getMovie(): string
+    {
+        return $this->movie;
+    }
+
+    public function getDate(): string
+    {
+        return $this->date;
+    }
+
+    public function getDuration(): string
+    {
+        return $this->duration;
+    }
 }
