@@ -6,7 +6,7 @@ use App\Domain\Booking\Entity\MovieShow;
 use App\Domain\Booking\Entity\Ticket;
 use App\Domain\Booking\Entity\ValueObject\Client;
 
-class BookingService
+class MovieShowService
 {
     public function createTicket(MovieShow $movieShow, Client $client)
     {

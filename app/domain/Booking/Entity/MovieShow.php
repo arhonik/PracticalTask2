@@ -2,26 +2,31 @@
 
 namespace App\Domain\Booking\Entity;
 
+use App\Domain\Booking\Collection\TicketsCollection;
 use App\Domain\Booking\Entity\ValueObject\Movie;
 use App\Domain\Booking\Entity\ValueObject\Hall;
+use App\Domain\Booking\Entity\ValueObject\Schedule;
 
 class MovieShow
 {
     private int $id;
     private Movie $movie;
-    private Schedule $schedule;
+    private Schedulehedule $schedule;
     private Hall $hall;
+    private TicketsCollection $ticketsCollection;
 
     public function __construct(
-        int       $id,
-        Movie     $movie,
-        Schedule  $dateTimeOfMovie,
-        Hall $hall
+        int $id,
+        Movie $movie,
+        Schedule $dateTimeOfMovie,
+        Hall $hall,
+        TicketsCollection $ticketsCollection
     ) {
         $this->id = $id;
         $this->movie = $movie;
         $this->schedule = $dateTimeOfMovie;
         $this->hall = $hall;
+        $this->ticketsCollection = $ticketsCollection;
     }
 
     public function getId(): int
@@ -44,9 +49,14 @@ class MovieShow
         return $this->hall;
     }
 
+    public function getTicketsCollection(): TicketsCollection
+    {
+        return $this->ticketsCollection;
+    }
+
     public function checkIfFreePlaces(): bool
     {
-        $freePlaces = $this->hall->getNumberOfPlaces() - $this->hall->getNumberOfTicket();
+        $freePlaces = $this->hall->getNumberOfPlaces() - $this->ticketsCollection->getCountItems();
         if ($freePlaces > 0) {
             return true;
         } else {
@@ -54,8 +64,8 @@ class MovieShow
         }
     }
 
-    public function bookPlace()
+    public function bookPlace(Ticket $ticket)
     {
-        $this->hall->setNumberOfTicket($this->hall->getNumberOfTicket() + 1);
+        $this->ticketsCollection->addItem($ticket);
     }
 }
