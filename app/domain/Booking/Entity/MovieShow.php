@@ -8,14 +8,14 @@ class MovieShow
 {
     private int $id;
     private Movie $movie;
-    private movieSchedule $dateTimeOfMovie;
+    private MovieSchedule $dateTimeOfMovie;
     private int $numberOfTicket;
     private int $numberOfPlaces;
 
     public function __construct(
         int           $id,
         Movie         $movie,
-        movieSchedule $dateTimeOfMovie,
+        MovieSchedule $dateTimeOfMovie,
         int           $numberOfTicket,
         int           $numberOfPlaces
     ) {
@@ -31,7 +31,7 @@ class MovieShow
         return $this->movie;
     }
 
-    public function getDateTimeOfMovie(): movieSchedule
+    public function getDateTimeOfMovie(): MovieSchedule
     {
         return $this->dateTimeOfMovie;
     }

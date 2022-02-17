@@ -2,7 +2,7 @@
 
 namespace app\domain\Booking\Entity;
 
-class movieSchedule
+class MovieSchedule
 {
     private int $id;
     private string $date;
