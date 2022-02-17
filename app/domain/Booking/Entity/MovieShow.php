@@ -11,20 +11,20 @@ class MovieShow
 {
     private int $id;
     private Movie $movie;
-    private Schedulehedule $schedule;
+    private Schedule $schedule;
     private Hall $hall;
     private TicketsCollection $ticketsCollection;
 
     public function __construct(
         int $id,
         Movie $movie,
-        Schedule $dateTimeOfMovie,
+        Schedule $schedule,
         Hall $hall,
         TicketsCollection $ticketsCollection
     ) {
         $this->id = $id;
         $this->movie = $movie;
-        $this->schedule = $dateTimeOfMovie;
+        $this->schedule = $schedule;
         $this->hall = $hall;
         $this->ticketsCollection = $ticketsCollection;
     }
