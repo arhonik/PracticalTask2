@@ -36,9 +36,9 @@ class MovieShow
         return $this->movie;
     }
 
-    public function getDateTimeOfMovie(): MovieSchedule
+    public function getSchedule(): MovieSchedule
     {
-        return $this->dateTimeOfMovie;
+        return $this->schedule;
     }
 
     public function checkIfFreePlaces(): bool
