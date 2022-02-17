@@ -39,7 +39,6 @@ class MovieShowRepository implements MovieShowRepositoryInterface
         // TODO: Implement findByTitleMovieAndSchedule() method.
         $ticket1 = new \App\Domain\Booking\Entity\Ticket(
             1,
-            1,
             new \App\Domain\Booking\Entity\ValueObject\Client(
                 "John",
                 "+79027869474"
@@ -50,7 +49,6 @@ class MovieShowRepository implements MovieShowRepositoryInterface
         );
         $ticket2 = new \App\Domain\Booking\Entity\Ticket(
             2,
-            1,
             new \App\Domain\Booking\Entity\ValueObject\Client(
                 "Michael",
                 "+79021879474"
@@ -61,7 +59,6 @@ class MovieShowRepository implements MovieShowRepositoryInterface
         );
         $ticket3 = new \App\Domain\Booking\Entity\Ticket(
             3,
-            1,
             new \App\Domain\Booking\Entity\ValueObject\Client(
                 "Kirill",
                 "+79094869474"
