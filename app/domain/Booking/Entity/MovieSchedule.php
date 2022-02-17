@@ -1,6 +1,6 @@
 <?php
 
-namespace app\domain\Booking\Entity;
+namespace App\Domain\Booking\Entity;
 
 class MovieSchedule
 {
