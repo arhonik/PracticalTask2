@@ -2,7 +2,7 @@
 
 namespace App\Domain\Booking\Entity;
 
-use app\domain\Booking\Entity\ValueObject\Movie;
+use App\Domain\Booking\Entity\ValueObject\Movie;
 use App\Domain\Booking\Entity\ValueObject\MovieHall;
 
 class MovieShow
@@ -56,6 +56,6 @@ class MovieShow
 
     public function bookPlace()
     {
-        $this->numberOfTicket = $this->numberOfTicket + 1;
+        $this->hall->setNumberOfTicket($this->hall->getNumberOfTicket() + 1);
     }
 }
