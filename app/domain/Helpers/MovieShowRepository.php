@@ -3,7 +3,7 @@
 namespace App\Domain\Helpers;
 
 use App\Domain\Booking\Collection\TicketsCollection;
-use App\Domain\Booking\Entity\Schedule;
+use App\Domain\Booking\Entity\ValueObject\Schedule;
 use App\Domain\Booking\Entity\MovieShow;
 use App\Domain\Booking\Entity\TransferObject\MovieShowDto;
 use App\Domain\Booking\Entity\ValueObject\Movie;
@@ -22,7 +22,6 @@ class MovieShowRepository implements MovieShowRepositoryInterface
                 "1ч 25м"
             ),
             new Schedule(
-                1,
                 "10 октября",
                 "19:45",
                 "21:10"
@@ -32,7 +31,6 @@ class MovieShowRepository implements MovieShowRepositoryInterface
             ),
             $ticketsCollection
         );
-        $movieShow->getHall()->setNumberOfTicket(5);
         return $movieShow;
     }
 
@@ -80,7 +78,6 @@ class MovieShowRepository implements MovieShowRepositoryInterface
                 "1ч 25м"
             ),
             new Schedule(
-                1,
                 "10 октября",
                 "19:45",
                 "21:10"
@@ -90,7 +87,6 @@ class MovieShowRepository implements MovieShowRepositoryInterface
             ),
             $ticketsCollection
         );
-        $movieShow->getHall()->setNumberOfTicket(5);
         return $movieShow;
     }
 
