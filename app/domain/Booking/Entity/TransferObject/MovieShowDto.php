@@ -4,7 +4,7 @@ namespace App\Domain\Booking\Entity\TransferObject;
 
 class MovieShowDto
 {
-    public string $title;
+    public string $titleMovie;
     public string $date;
     public string $startTime;
 
@@ -14,7 +14,7 @@ class MovieShowDto
             throw new \InvalidArgumentException('Error type');
         }
 
-        $this->title = $data["title"];
+        $this->titleMovie = $data["titleMovie"];
         $this->date = $data["date"];
         $this->startTime = $data["startTime"];
     }
