@@ -14,12 +14,14 @@ class MovieShowService
             throw new \Exception();
         }
 
+        $schedule = $movieShow->getSchedule();
+        $movie = $movieShow->getMovie();
         $ticket = new Ticket(
             4,
             $client,
-            $movieShow->getSchedule()->getDate(),
-            $movieShow->getMovie()->getTitle(),
-            $movieShow->getMovie()->getDuration()
+            $schedule->getDate(),
+            $movie->getTitle(),
+            $movie->getDuration()
         );
         $movieShow->bookPlace($ticket);
     }
