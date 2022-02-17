@@ -7,6 +7,7 @@ use App\Domain\Booking\Entity\ValueObject\Client;
 class Ticket
 {
     private int $id;
+    private int $movieShowId;
     private Client $client;
     private string $movie;
     private string $date;
@@ -14,12 +15,14 @@ class Ticket
 
     public function __construct(
         int $id,
+        int $movieShowId,
         Client $client,
         string $movie,
         string $date,
         string $startTime
     ) {
         $this->id = $id;
+        $this->movieShowId;
         $this->client = $client;
         $this->movie = $movie;
         $this->date = $date;

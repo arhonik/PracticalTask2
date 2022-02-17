@@ -18,6 +18,7 @@ class MovieShowService
         $movie = $movieShow->getMovie();
         $ticket = new Ticket(
             4,
+            $movieShow->getId(),
             $client,
             $schedule->getDate(),
             $movie->getTitle(),
