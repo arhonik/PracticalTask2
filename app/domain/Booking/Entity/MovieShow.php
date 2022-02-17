@@ -3,27 +3,25 @@
 namespace App\Domain\Booking\Entity;
 
 use app\domain\Booking\Entity\ValueObject\Movie;
+use App\Domain\Booking\Entity\ValueObject\MovieHall;
 
 class MovieShow
 {
     private int $id;
     private Movie $movie;
     private MovieSchedule $schedule;
-    private int $numberOfTicket;
-    private int $numberOfPlaces;
+    private MovieHall $hall;
 
     public function __construct(
         int           $id,
         Movie         $movie,
         MovieSchedule $dateTimeOfMovie,
-        int           $numberOfTicket,
-        int           $numberOfPlaces
+        MovieHall $hall
     ) {
         $this->id = $id;
         $this->movie = $movie;
         $this->schedule = $dateTimeOfMovie;
-        $this->numberOfTicket = $numberOfTicket;
-        $this->numberOfPlaces = $numberOfPlaces;
+        $this->hall = $hall;
     }
 
     public function getId(): int
@@ -43,7 +41,8 @@ class MovieShow
 
     public function checkIfFreePlaces(): bool
     {
-        if (($this->numberOfPlaces - $this->numberOfTicket) > 0) {
+        $freePlaces = $this->hall->getNumberOfPlaces() - $this->hall->getNumberOfTicket();
+        if ($freePlaces > 0) {
             return true;
         } else {
             return false;
