@@ -5,12 +5,11 @@ namespace App\Domain\Booking\Entity\ValueObject;
 class MovieHall
 {
     private int $numberOfPlaces;
-    private int $numberOfTicket;
+    private int $numberOfTicket = 0;
 
-    public function __construct(int $numberOfPlaces, int $numberOfTicket = 0)
+    public function __construct(int $numberOfPlaces)
     {
         $this->numberOfPlaces = $numberOfPlaces;
-        $numberOfTicket = $numberOfTicket;
     }
 
     public function getNumberOfPlaces(): int
@@ -21,5 +20,10 @@ class MovieHall
     public function getNumberOfTicket(): int
     {
         return $this->numberOfTicket;
+    }
+
+    public function setNumberOfTicket(int $numberOfTicket): void
+    {
+        $this->numberOfTicket = $numberOfTicket;
     }
 }
