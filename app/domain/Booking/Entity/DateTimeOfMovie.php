@@ -1,15 +1,17 @@
 <?php
 
-namespace app\domain\Booking\Entity\ValueObject;
+namespace app\domain\Booking\Entity;
 
 class DateTimeOfMovie
 {
+    private int $id;
     private string $date;
     private string $startTime;
     private string $endTime;
 
-    public function __construct(string $date, string $startTime, string $endTime)
+    public function __construct(int $id, string $date, string $startTime, string $endTime)
     {
+        $this->id = $id;
         $this->date = $date;
         $this->startTime = $startTime;
         $this->endTime = $endTime;
