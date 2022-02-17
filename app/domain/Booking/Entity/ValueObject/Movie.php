@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\Booking\Entity\TransferObject;
+namespace App\Domain\Booking\Entity\ValueObject;
 
 class Movie
 {
