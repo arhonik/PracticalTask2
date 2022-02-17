@@ -2,6 +2,7 @@
 
 namespace App\Domain\Helpers;
 
+use App\Domain\Booking\Collection\TicketsCollection;
 use App\Domain\Booking\Entity\Ticket;
 
 class TicketsIterator implements \Iterator
