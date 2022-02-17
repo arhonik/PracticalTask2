@@ -4,7 +4,9 @@ namespace App\Domain\Booking\Entity\TransferObject;
 
 class MovieShowDto
 {
-    public int $id;
+    public int $title;
+    public int $date;
+    public int $startTime;
 
     public function load(?array $data)
     {
@@ -12,6 +14,8 @@ class MovieShowDto
             throw new \InvalidArgumentException('Error type');
         }
 
-        $this->id = $data["movieShowId"];
+        $this->title = $data["title"];
+        $this->date = $data["date"];
+        $this->startTime = $data["startTime"];
     }
 }
