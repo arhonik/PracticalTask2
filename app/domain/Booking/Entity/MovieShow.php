@@ -39,6 +39,11 @@ class MovieShow
         return $this->schedule;
     }
 
+    public function getHall(): MovieHall
+    {
+        return $this->hall;
+    }
+
     public function checkIfFreePlaces(): bool
     {
         $freePlaces = $this->hall->getNumberOfPlaces() - $this->hall->getNumberOfTicket();
