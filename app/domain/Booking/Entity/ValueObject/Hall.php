@@ -2,7 +2,7 @@
 
 namespace App\Domain\Booking\Entity\ValueObject;
 
-class MovieHall
+class Hall
 {
     private int $numberOfPlaces;
     private int $numberOfTicket = 0;

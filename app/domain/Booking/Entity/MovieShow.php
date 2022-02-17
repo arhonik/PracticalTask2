@@ -3,20 +3,20 @@
 namespace App\Domain\Booking\Entity;
 
 use App\Domain\Booking\Entity\ValueObject\Movie;
-use App\Domain\Booking\Entity\ValueObject\MovieHall;
+use App\Domain\Booking\Entity\ValueObject\Hall;
 
 class MovieShow
 {
     private int $id;
     private Movie $movie;
-    private MovieSchedule $schedule;
-    private MovieHall $hall;
+    private Schedule $schedule;
+    private Hall $hall;
 
     public function __construct(
-        int           $id,
-        Movie         $movie,
-        MovieSchedule $dateTimeOfMovie,
-        MovieHall $hall
+        int       $id,
+        Movie     $movie,
+        Schedule  $dateTimeOfMovie,
+        Hall $hall
     ) {
         $this->id = $id;
         $this->movie = $movie;
@@ -34,12 +34,12 @@ class MovieShow
         return $this->movie;
     }
 
-    public function getSchedule(): MovieSchedule
+    public function getSchedule(): Schedule
     {
         return $this->schedule;
     }
 
-    public function getHall(): MovieHall
+    public function getHall(): Hall
     {
         return $this->hall;
     }
