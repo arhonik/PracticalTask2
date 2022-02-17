@@ -65,8 +65,8 @@ foreach ($ticketsCollection->getIterator() as $item) {
     echo "      Имя: " . $client->getName() . "\n";
     echo "      Телефон: " . $client->getPhone() . "\n";
     echo "      Название фильма: " . $item->getMovie() . " \n";
-    echo "      Продолжительность: " . $item->getDuration() . "\n";
-    echo "      Дата: " . $item->getDuration() . "\n";
+    echo "      Дата: " . $item->getDate() . "\n";
+    echo "      Начианется в : " . $item->getStartTime() . "\n";
     echo "\n";
 }
 $client = new \App\Domain\Booking\Entity\ValueObject\Client($clientDto->name, $clientDto->phone);
@@ -107,7 +107,7 @@ foreach ($ticketsCollection->getIterator() as $item) {
     echo "      Имя: " . $client->getName() . "\n";
     echo "      Телефон: " . $client->getPhone() . "\n";
     echo "      Название фильма: " . $item->getMovie() . " \n";
-    echo "      Дата: " . $item->getDuration() . "\n";
+    echo "      Дата: " . $item->getDate() . "\n";
     echo "      Начианется в : " . $item->getStartTime() . "\n";
     echo "\n";
 }
