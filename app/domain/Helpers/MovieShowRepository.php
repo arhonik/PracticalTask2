@@ -45,7 +45,7 @@ class MovieShowRepository implements MovieShowRepositoryInterface
             ),
             "Venom 2",
             "10 октября",
-            "21:10"
+            "19:45"
         );
         $ticket2 = new \App\Domain\Booking\Entity\Ticket(
             2,
@@ -55,7 +55,7 @@ class MovieShowRepository implements MovieShowRepositoryInterface
             ),
             "Venom 2",
             "10 октября",
-            "21:10"
+            "19:45"
         );
         $ticket3 = new \App\Domain\Booking\Entity\Ticket(
             3,
@@ -65,7 +65,7 @@ class MovieShowRepository implements MovieShowRepositoryInterface
             ),
             "Venom 2",
             "10 октября",
-            "21:10"
+            "19:45"
         );
         $ticketsCollection = new TicketsCollection();
         $ticketsCollection->addItem($ticket1);
