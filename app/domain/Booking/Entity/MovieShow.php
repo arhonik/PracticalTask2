@@ -2,7 +2,7 @@
 
 namespace App\Domain\Booking\Entity;
 
-use app\domain\Booking\Entity\ValueObject\DateTimeOfMovie;
+use app\domain\Booking\Entity\ValueObject\Movie;
 
 class MovieShow
 {
