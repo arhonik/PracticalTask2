@@ -10,20 +10,20 @@ class Ticket
     private Client $client;
     private string $movie;
     private string $date;
-    private string $duration;
+    private string $startTime;
 
     public function __construct(
         int $id,
         Client $client,
         string $movie,
         string $date,
-        string $duration
+        string $startTime
     ) {
         $this->id = $id;
         $this->client = $client;
         $this->movie = $movie;
         $this->date = $date;
-        $this->duration = $duration;
+        $this->startTime = $startTime;
     }
 
     public function getId(): int
@@ -46,8 +46,8 @@ class Ticket
         return $this->date;
     }
 
-    public function getDuration(): string
+    public function getStartTime(): string
     {
-        return $this->duration;
+        return $this->startTime;
     }
 }
