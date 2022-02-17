@@ -8,7 +8,7 @@ class MovieShow
 {
     private int $id;
     private Movie $movie;
-    private MovieSchedule $dateTimeOfMovie;
+    private MovieSchedule $schedule;
     private int $numberOfTicket;
     private int $numberOfPlaces;
 
@@ -21,9 +21,14 @@ class MovieShow
     ) {
         $this->id = $id;
         $this->movie = $movie;
-        $this->dateTimeOfMovie = $dateTimeOfMovie;
+        $this->schedule = $dateTimeOfMovie;
         $this->numberOfTicket = $numberOfTicket;
         $this->numberOfPlaces = $numberOfPlaces;
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
     }
 
     public function getMovie(): Movie
