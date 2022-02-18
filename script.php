@@ -33,49 +33,22 @@ $data[5] = array(
 try {
     $clientDto1 = new \App\Domain\Booking\Entity\TransferObject\ClientDto();
     $clientDto1->load($data[0]);
-    echo "Объект передачи данных клиента создан:\n";
-    echo "Имя: " . $clientDto1->name . "\n";
-    echo "Телефон: ". $clientDto1->phone ."\n";
-    echo "\n";
-    echo "\n";
+    viewClientDto($clientDto1);
     $movieShowDto1 = new \App\Domain\Booking\Entity\TransferObject\MovieShowDto();
     $movieShowDto1->load($data[1]);
-    echo "Объект передачи данных Киносеанса создан:\n";
-    echo "Название фильма: " . $movieShowDto1->titleMovie . "\n";
-    echo "Дата показа: ". $movieShowDto1->date ."\n";
-    echo "Время начало показа: ". $movieShowDto1->startTime ."\n";
-    echo "\n";
-    echo "\n";
+    viewMovieShowDto($movieShowDto1);
     $clientDto2 = new \App\Domain\Booking\Entity\TransferObject\ClientDto();
     $clientDto2->load($data[2]);
-    echo "Объект передачи данных клиента создан:\n";
-    echo "Имя: " . $clientDto2->name . "\n";
-    echo "Телефон: ". $clientDto2->phone ."\n";
-    echo "\n";
-    echo "\n";
+    viewClientDto($clientDto2);
     $movieShowDto2 = new \App\Domain\Booking\Entity\TransferObject\MovieShowDto();
     $movieShowDto2->load($data[3]);
-    echo "Объект передачи данных Киносеанса создан:\n";
-    echo "Название фильма: " . $movieShowDto2->titleMovie . "\n";
-    echo "Дата показа: ". $movieShowDto2->date ."\n";
-    echo "Время начало показа: ". $movieShowDto2->startTime ."\n";
-    echo "\n";
-    echo "\n";
+    viewMovieShowDto($movieShowDto2);
     $clientDto3 = new \App\Domain\Booking\Entity\TransferObject\ClientDto();
     $clientDto3->load($data[4]);
-    echo "Объект передачи данных клиента создан:\n";
-    echo "Имя: " . $clientDto3->name . "\n";
-    echo "Телефон: ". $clientDto3->phone ."\n";
-    echo "\n";
-    echo "\n";
+    viewClientDto($clientDto3);
     $movieShowDto3 = new \App\Domain\Booking\Entity\TransferObject\MovieShowDto();
     $movieShowDto3->load($data[5]);
-    echo "Объект передачи данных Киносеанса создан:\n";
-    echo "Название фильма: " . $movieShowDto3->titleMovie . "\n";
-    echo "Дата показа: ". $movieShowDto3->date ."\n";
-    echo "Время начало показа: ". $movieShowDto3->startTime ."\n";
-    echo "\n";
-    echo "\n";
+    viewMovieShowDto($movieShowDto3);
 } catch (\InvalidArgumentException $e) {
     echo $e->getMessage();
     exit;
@@ -91,25 +64,7 @@ try {
 echo "Найдена сущность киносеанса.\n";
 echo "\n";
 echo "Данные до бронирования:\n";
-echo "\n";
-echo "  Индетификатор киносеанса: " . $movieShow->getId() . "\n";
-echo "\n";
-echo "  Данные фильма:\n";
-$movie = $movieShow->getMovie();
-echo "    Название: ". $movie->getTitle() ."\n";
-echo "    Продолжительность: ". $movie->getDuration() ."\n";
-echo "\n";
-echo "  Расписание киносеанса:\n";
-$schedule = $movieShow->getSchedule();
-echo "    Дата:" . $schedule->getDate() . "\n";
-echo "    Начинается:" . $schedule->getStartAt() . "\n";
-echo "    Заканчивается: " . $schedule->getEndAt() . "\n";
-echo "\n";
-echo "  Характеристики кинозала:\n";
-$hall = $movieShow->getHall();
-echo "    Общее кол-во мест: " . $hall->getNumberOfPlaces() . "\n";
-echo "\n";
-echo "\n";
+viewMovieShow($movieShow);
 try {
     $movieShow->bookPlace($clientDto1);
     $movieShow->bookPlace($clientDto2);
@@ -118,38 +73,7 @@ try {
     exit;
 }
 echo "Приобритен новый билет\n";
-echo "\n";
-echo "Обновленная информаия по сеансу\n";
-echo "\n";
-echo "  Индетификатор киносеанса: " . $movieShow->getId() . "\n";
-echo "\n";
-echo "  Данные фильма:\n";
-$movie = $movieShow->getMovie();
-echo "    Название: ". $movie->getTitle() ."\n";
-echo "    Продолжительность: ". $movie->getDuration() ."\n";
-echo "\n";
-echo "  Расписание киносеанса:\n";
-$schedule = $movieShow->getSchedule();
-echo "    Дата:" . $schedule->getDate() . "\n";
-echo "    Начинается:" . $schedule->getStartAt() . "\n";
-echo "    Заканчивается: " . $schedule->getEndAt() . "\n";
-echo "\n";
-echo "  Характеристики кинозала:\n";
-$hall = $movieShow->getHall();
-echo "    Общее кол-во мест:" . $hall->getNumberOfPlaces() . "\n";
-echo "\n";
-echo "  Проданные билеты:\n";
-foreach ($movieShow->getTicketsCollectionIterator() as $item) {
-    echo "    Индетификатор билета: " . $item->getId() . "\n";
-    echo "    Информация о клиента: \n";
-    $client = $item->getClient();
-    echo "      Имя: " . $client->getName() . "\n";
-    echo "      Телефон: " . $client->getPhone() . "\n";
-    echo "      Название фильма: " . $item->getMovie() . " \n";
-    echo "      Дата: " . $item->getDate() . "\n";
-    echo "      Начианется в: " . $item->getStartTime() . "\n";
-    echo "\n";
-}
+viewMovieShow($movieShow);
 try {
     $movieShow->bookPlace($clientDto3);
 } catch (\DomainException $e) {
@@ -157,35 +81,60 @@ try {
     exit;
 }
 echo "Приобритен новый билет\n";
-echo "\n";
-echo "Обновленная информаия по сеансу\n";
-echo "\n";
-echo "  Индетификатор киносеанса: " . $movieShow->getId() . "\n";
-echo "\n";
-echo "  Данные фильма:\n";
-$movie = $movieShow->getMovie();
-echo "    Название: ". $movie->getTitle() ."\n";
-echo "    Продолжительность: ". $movie->getDuration() ."\n";
-echo "\n";
-echo "  Расписание киносеанса:\n";
-$schedule = $movieShow->getSchedule();
-echo "    Дата:" . $schedule->getDate() . "\n";
-echo "    Начинается:" . $schedule->getStartAt() . "\n";
-echo "    Заканчивается: " . $schedule->getEndAt() . "\n";
-echo "\n";
-echo "  Характеристики кинозала:\n";
-$hall = $movieShow->getHall();
-echo "    Общее кол-во мест:" . $hall->getNumberOfPlaces() . "\n";
-echo "\n";
-echo "  Проданные билеты:\n";
-foreach ($movieShow->getTicketsCollectionIterator() as $item) {
-    echo "    Индетификатор билета: " . $item->getId() . "\n";
+viewMovieShow($movieShow);
+
+function viewClientDto(\App\Domain\Booking\Entity\TransferObject\ClientDto $clientDto)
+{
+    echo "Объект передачи данных клиента создан:\n";
+    echo "Имя: " . $clientDto->name . "\n";
+    echo "Телефон: ". $clientDto->phone ."\n";
+    echo "\n";
+    echo "\n";
+}
+
+function viewMovieShowDto(\App\Domain\Booking\Entity\TransferObject\MovieShowDto $movieShowDto)
+{
+    echo "Объект передачи данных Киносеанса создан:\n";
+    echo "Название фильма: " . $movieShowDto->titleMovie . "\n";
+    echo "Дата показа: ". $movieShowDto->date ."\n";
+    echo "Время начало показа: ". $movieShowDto->startTime ."\n";
+    echo "\n";
+    echo "\n";
+}
+
+function viewMovieShow(\App\Domain\Booking\Entity\MovieShow $movieShow)
+{
+    echo "\n";
+    echo "  Индетификатор киносеанса: " . $movieShow->getId() . "\n";
+    echo "\n";
+    echo "  Данные фильма:\n";
+    echo "    Название: ". $movieShow->getMovieTitle() ."\n";
+    echo "    Продолжительность: ". $movieShow->getMovieDuration() ."\n";
+    echo "\n";
+    echo "  Расписание киносеанса:\n";
+    echo "    Дата:" . $movieShow->getScheduleDate() . "\n";
+    echo "    Начинается:" . $movieShow->getScheduleStartAt() . "\n";
+    echo "    Заканчивается: " . $movieShow->getScheduleEndAt() . "\n";
+    echo "\n";
+    echo "  Характеристики кинозала:\n";
+    echo "    Кол-во свободных мест: " . $movieShow->getNumberOfAvailablePlacesForBooking() . "\n";
+    echo "  Проданные билеты:\n";
+    foreach ($movieShow->getTicketsCollectionIterator() as $item) {
+        viewTicket($item);
+    }
+    echo "\n";
+    echo "\n";
+}
+
+function viewTicket(\App\Domain\Booking\Entity\Ticket $ticket)
+{
+    echo "    Индетификатор билета: " . $ticket->getId() . "\n";
     echo "    Информация о клиента: \n";
-    $client = $item->getClient();
+    $client = $ticket->getClient();
     echo "      Имя: " . $client->getName() . "\n";
     echo "      Телефон: " . $client->getPhone() . "\n";
-    echo "      Название фильма: " . $item->getMovie() . " \n";
-    echo "      Дата: " . $item->getDate() . "\n";
-    echo "      Начианется в: " . $item->getStartTime() . "\n";
+    echo "      Название фильма: " . $ticket->getMovie() . " \n";
+    echo "      Дата: " . $ticket->getDate() . "\n";
+    echo "      Начианется в: " . $ticket->getStartTime() . "\n";
     echo "\n";
 }
