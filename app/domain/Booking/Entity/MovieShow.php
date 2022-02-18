@@ -80,7 +80,7 @@ class MovieShow
         return $this->hall;
     }
 
-    public function getTicketsCollection(): TicketsCollection
+    private function getTicketsCollection(): TicketsCollection
     {
         return $this->ticketsCollection;
     }
