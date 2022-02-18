@@ -64,7 +64,7 @@ class MovieShow
     public function bookPlace(ClientDto $client)
     {
         self::assertCanBeAddTicket($this->getTicketsCollection(), $this->hall->getNumberOfPlaces());
-        
+
         $this->ticketsCollection->add(new Ticket(
             4,
             new Client(
