@@ -8,6 +8,8 @@ use App\Domain\Booking\Entity\ValueObject\Client;
 use App\Domain\Booking\Entity\ValueObject\Movie;
 use App\Domain\Booking\Entity\ValueObject\Hall;
 use App\Domain\Booking\Entity\ValueObject\Schedule;
+use DomainException;
+use Iterator;
 
 class MovieShow
 {
@@ -49,7 +51,7 @@ class MovieShow
     private static function assertCanBeAddTicket(TicketsCollection $ticketsCollection, int $numberOfPlaces)
     {
         if (!self::checkIfFreePlaces($ticketsCollection, $numberOfPlaces)) {
-            throw new \DomainException('No free places');
+            throw new DomainException('No free places');
         }
     }
 
@@ -99,7 +101,7 @@ class MovieShow
         return $this->ticketsCollection;
     }
 
-    public function getTicketsCollectionIterator(): \Iterator
+    public function getTicketsCollectionIterator(): Iterator
     {
         return $this->ticketsCollection->getIterator();
     }
