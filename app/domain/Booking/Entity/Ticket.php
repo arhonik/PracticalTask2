@@ -31,9 +31,14 @@ class Ticket
         return $this->id;
     }
 
-    public function getClient(): Customer
+    public function getCustomerName(): string
     {
-        return $this->client;
+        return $this->customer->getName();
+    }
+
+    public function getCustomerPhone(): string
+    {
+        return $this->customer->getPhone();
     }
 
     public function getMovie(): string
