@@ -2,6 +2,7 @@
 
 namespace App\Domain\Helpers;
 
+use App\Domain\Booking\Collection\MovieShowCollection;
 use App\Domain\Booking\Collection\TicketsCollection;
 use App\Domain\Booking\Entity\ValueObject\Schedule;
 use App\Domain\Booking\Entity\MovieShow;
@@ -11,7 +12,13 @@ use App\Domain\Booking\Entity\ValueObject\Hall;
 
 class MovieShowRepository implements MovieShowRepositoryInterface
 {
-    public function findById(int $id): ?MovieShow
+    public function findAllActive(): MovieShowCollection
+    {
+        // TODO: Implement findAll() method.
+        return new MovieShowCollection();
+    }
+
+    public function findById(int $id): MovieShow
     {
         // TODO: Implement findById() method.
         $ticketsCollection = new TicketsCollection();
@@ -32,7 +39,7 @@ class MovieShowRepository implements MovieShowRepositoryInterface
         );
     }
 
-    public function findByTitleMovieAndSchedule(MovieShowDto $movieShowDto)
+    public function findByTitleMovieAndSchedule(MovieShowDto $movieShowDto): MovieShow
     {
         // TODO: Implement findByTitleMovieAndSchedule() method.
         $movieShow = new MovieShow(
