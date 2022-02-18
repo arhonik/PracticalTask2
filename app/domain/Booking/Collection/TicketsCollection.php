@@ -6,9 +6,9 @@ use App\Domain\Booking\Entity\Ticket;
 
 class TicketsCollection implements \Countable
 {
-    private $tickets = [];
+    private array $tickets = [];
 
-    public function get()
+    public function get(): array
     {
         return $this->tickets;
     }
