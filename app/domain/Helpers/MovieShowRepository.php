@@ -15,7 +15,7 @@ class MovieShowRepository implements MovieShowRepositoryInterface
     {
         // TODO: Implement findById() method.
         $ticketsCollection = new TicketsCollection();
-        $movieShow = new MovieShow(
+        return new MovieShow(
             1,
             new Movie(
                 "Venom 2",
@@ -28,10 +28,8 @@ class MovieShowRepository implements MovieShowRepositoryInterface
             ),
             new Hall(
                 100
-            ),
-            $ticketsCollection
+            )
         );
-        return $movieShow;
     }
 
     public function findByTitleMovieAndSchedule(MovieShowDto $movieShowDto)
@@ -67,10 +65,6 @@ class MovieShowRepository implements MovieShowRepositoryInterface
             "10 октября",
             "19:45"
         );
-        $ticketsCollection = new TicketsCollection();
-        $ticketsCollection->add($ticket1);
-        $ticketsCollection->add($ticket2);
-        $ticketsCollection->add($ticket3);
         $movieShow = new MovieShow(
             1,
             new Movie(
@@ -84,9 +78,11 @@ class MovieShowRepository implements MovieShowRepositoryInterface
             ),
             new Hall(
                 100
-            ),
-            $ticketsCollection
+            )
         );
+        $movieShow->bookPlace($ticket1);
+        $movieShow->bookPlace($ticket2);
+        $movieShow->bookPlace($ticket3);
         return $movieShow;
     }
 

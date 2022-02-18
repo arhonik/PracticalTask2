@@ -19,14 +19,13 @@ class MovieShow
         int $id,
         Movie $movie,
         Schedule $schedule,
-        Hall $hall,
-        TicketsCollection $ticketsCollection
+        Hall $hall
     ) {
         $this->id = $id;
         $this->movie = $movie;
         $this->schedule = $schedule;
         $this->hall = $hall;
-        $this->ticketsCollection = $ticketsCollection;
+        $this->ticketsCollection = new TicketsCollection();
     }
 
     public function getId(): int
