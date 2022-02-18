@@ -5,12 +5,14 @@ namespace App\Domain\Booking\Entity\ValueObject;
 class Movie
 {
     private string $title;
-    private string $duration;
+    private \DateInterval $duration;
 
     public function __construct(string $title, string $duration)
     {
         $this->title = $title;
-        $this->duration = $duration;
+
+        self::acceptCanBeConvertStringToTime($duration);
+        $this->duration = \DateInterval::createFromDateString($duration);
     }
 
     public function getTitle(): string
@@ -20,6 +22,13 @@ class Movie
 
     public function getDuration(): string
     {
-        return $this->duration;
+        return $this->duration->format("%hч. %iмин.");
+    }
+
+    private static function acceptCanBeConvertStringToTime(string $string)
+    {
+        if (!strtotime($string)) {
+            throw new \DomainException('Can\'t convert string to time');
+        }
     }
 }

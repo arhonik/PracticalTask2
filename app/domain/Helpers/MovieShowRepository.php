@@ -19,7 +19,7 @@ class MovieShowRepository implements MovieShowRepositoryInterface
             1,
             new Movie(
                 "Venom 2",
-                "1ч 25м"
+                "1 hour 25 minutes"
             ),
             new Schedule(
                 "10 октября",
@@ -69,7 +69,7 @@ class MovieShowRepository implements MovieShowRepositoryInterface
             1,
             new Movie(
                 "Venom 2",
-                "1ч 25м"
+                "1 hour 25 minutes"
             ),
             new Schedule(
                 "10 October 2022 19:45",
