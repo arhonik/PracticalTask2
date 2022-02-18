@@ -2,6 +2,7 @@
 
 namespace App\Domain\Booking\Collection;
 
+use App\Domain\Booking\Entity\Ticket;
 use App\Domain\Helpers\TicketsIterator;
 
 class TicketsCollection implements \Countable
@@ -13,9 +14,9 @@ class TicketsCollection implements \Countable
         return $this->tickets;
     }
 
-    public function add($item)
+    public function add(Ticket$ticket)
     {
-        $this->tickets[] = $item;
+        $this->tickets[] = $ticket;
     }
 
     public function count(): int
