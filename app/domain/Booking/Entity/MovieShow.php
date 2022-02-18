@@ -30,6 +30,35 @@ class MovieShow
         $this->ticketsCollection = new TicketsCollection();
     }
 
+    public function bookPlace(ClientDto $client)
+    {
+        self::assertCanBeAddTicket($this->getTicketsCollection(), $this->hall->getNumberOfPlaces());
+
+        $this->ticketsCollection->add(new Ticket(
+            4,
+            new Client(
+                $client->name,
+                $client->phone
+            ),
+            $this->movie->getTitle(),
+            $this->schedule->getDate(),
+            $this->schedule->getStartTime()
+        ));
+    }
+
+    private static function assertCanBeAddTicket(TicketsCollection $ticketsCollection, int $numberOfPlaces)
+    {
+        if (!self::checkIfFreePlaces($ticketsCollection, $numberOfPlaces)) {
+            throw new \DomainException('No free places');
+        }
+    }
+
+    private static function checkIfFreePlaces(TicketsCollection $ticketsCollection, int $numberOfPlaces): bool
+    {
+        $freePlaces = $numberOfPlaces - $ticketsCollection->count();
+        return $freePlaces > 0;
+    }
+
     public function getId(): int
     {
         return $this->id;
@@ -53,34 +82,5 @@ class MovieShow
     public function getTicketsCollection(): TicketsCollection
     {
         return $this->ticketsCollection;
-    }
-
-    private static function checkIfFreePlaces(TicketsCollection $ticketsCollection, int $numberOfPlaces): bool
-    {
-        $freePlaces = $numberOfPlaces - $ticketsCollection->count();
-        return $freePlaces > 0;
-    }
-
-    public function bookPlace(ClientDto $client)
-    {
-        self::assertCanBeAddTicket($this->getTicketsCollection(), $this->hall->getNumberOfPlaces());
-
-        $this->ticketsCollection->add(new Ticket(
-            4,
-            new Client(
-                $client->name,
-                $client->phone
-            ),
-            $this->movie->getTitle(),
-            $this->schedule->getDate(),
-            $this->schedule->getStartTime()
-        ));
-    }
-
-    private static function assertCanBeAddTicket(TicketsCollection $ticketsCollection, int $numberOfPlaces)
-    {
-        if (!self::checkIfFreePlaces($ticketsCollection, $numberOfPlaces)) {
-            throw new \DomainException('No free places');
-        }
     }
 }
