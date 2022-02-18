@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Domain\Helpers;
+namespace App\Domain\Booking\Collection;
 
-use App\Domain\Booking\Collection\TicketsCollection;
 use App\Domain\Booking\Entity\Ticket;
 
 class TicketsIterator implements \Iterator
