@@ -20,12 +20,12 @@ class TicketsIterator implements \Iterator
     public function rewind()
     {
         $this->position = $this->reverse ?
-            count($this->collection->getItems()) - 1 : 0;
+            count($this->collection->get()) - 1 : 0;
     }
 
     public function current(): Ticket
     {
-        return $this->collection->getItems()[$this->position];
+        return $this->collection->get()[$this->position];
     }
 
     public function key(): int
@@ -40,7 +40,7 @@ class TicketsIterator implements \Iterator
 
     public function valid(): bool
     {
-        return isset($this->collection->getItems()[$this->position]);
+        return isset($this->collection->get()[$this->position]);
     }
 
 }

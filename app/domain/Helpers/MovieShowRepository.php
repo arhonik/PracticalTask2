@@ -68,9 +68,9 @@ class MovieShowRepository implements MovieShowRepositoryInterface
             "19:45"
         );
         $ticketsCollection = new TicketsCollection();
-        $ticketsCollection->addItem($ticket1);
-        $ticketsCollection->addItem($ticket2);
-        $ticketsCollection->addItem($ticket3);
+        $ticketsCollection->add($ticket1);
+        $ticketsCollection->add($ticket2);
+        $ticketsCollection->add($ticket3);
         $movieShow = new MovieShow(
             1,
             new Movie(

@@ -56,7 +56,7 @@ class MovieShow
 
     public function checkIfFreePlaces(): bool
     {
-        $freePlaces = $this->hall->getNumberOfPlaces() - $this->ticketsCollection->getCountItems();
+        $freePlaces = $this->hall->getNumberOfPlaces() - $this->ticketsCollection->count();
         if ($freePlaces > 0) {
             return true;
         } else {
@@ -66,6 +66,6 @@ class MovieShow
 
     public function bookPlace(Ticket $ticket)
     {
-        $this->ticketsCollection->addItem($ticket);
+        $this->ticketsCollection->add($ticket);
     }
 }
