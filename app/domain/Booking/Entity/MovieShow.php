@@ -3,6 +3,8 @@
 namespace App\Domain\Booking\Entity;
 
 use App\Domain\Booking\Collection\TicketsCollection;
+use App\Domain\Booking\Entity\TransferObject\ClientDto;
+use App\Domain\Booking\Entity\ValueObject\Client;
 use App\Domain\Booking\Entity\ValueObject\Movie;
 use App\Domain\Booking\Entity\ValueObject\Hall;
 use App\Domain\Booking\Entity\ValueObject\Schedule;
@@ -59,10 +61,20 @@ class MovieShow
         return $freePlaces > 0;
     }
 
-    public function bookPlace(Ticket $ticket)
+    public function bookPlace(ClientDto $client)
     {
         self::assertCanBeAddTicket($this->getTicketsCollection(), $this->hall->getNumberOfPlaces());
-        $this->ticketsCollection->add($ticket);
+        
+        $this->ticketsCollection->add(new Ticket(
+            4,
+            new Client(
+                $client->name,
+                $client->phone
+            ),
+            $this->getMovie()->getTitle(),
+            $this->getSchedule()->getDate(),
+            $this->getSchedule()->getStartTime()
+        ));
     }
 
     private static function assertCanBeAddTicket(TicketsCollection $ticketsCollection, int $numberOfPlaces)
