@@ -55,7 +55,7 @@ class MovieShow
         return $this->ticketsCollection;
     }
 
-    public static function checkIfFreePlaces(TicketsCollection $ticketsCollection, int $numberOfPlaces): bool
+    private static function checkIfFreePlaces(TicketsCollection $ticketsCollection, int $numberOfPlaces): bool
     {
         $freePlaces = $numberOfPlaces - $ticketsCollection->count();
         return $freePlaces > 0;
@@ -71,9 +71,9 @@ class MovieShow
                 $client->name,
                 $client->phone
             ),
-            $this->getMovie()->getTitle(),
-            $this->getSchedule()->getDate(),
-            $this->getSchedule()->getStartTime()
+            $this->movie->getTitle(),
+            $this->schedule->getDate(),
+            $this->schedule->getStartTime()
         ));
     }
 
