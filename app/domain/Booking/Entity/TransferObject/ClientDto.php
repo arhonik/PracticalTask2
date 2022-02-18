@@ -9,12 +9,16 @@ class ClientDto
 
     public function load(?array $data)
     {
-        if (!is_array($data)) {
-            throw new \InvalidArgumentException('Error type');
-        }
+        self::assertCanBeArray($data);
 
         $this->name = $data["name"];
         $this->phone = $data["phone"];
     }
 
+    private static function assertCanBeArray(?array $data): void
+    {
+        if (!is_array($data)) {
+            throw new \InvalidArgumentException('Error type');
+        }
+    }
 }
