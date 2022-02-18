@@ -102,8 +102,7 @@ $hall = $movieShow->getHall();
 echo "    Общее кол-во мест:" . $hall->getNumberOfPlaces() . "\n";
 echo "\n";
 echo "  Проданные билеты:\n";
-$ticketsCollection = $movieShow->getTicketsCollection();
-foreach ($ticketsCollection->getIterator() as $item) {
+foreach ($movieShow->getTicketsCollectionIterator() as $item) {
     echo "    Индетификатор билета: " . $item->getId() . "\n";
     echo "    Информация о клиента: \n";
     $client = $item->getClient();
