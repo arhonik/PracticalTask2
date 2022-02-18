@@ -7,20 +7,20 @@ use App\Domain\Booking\Entity\ValueObject\Customer;
 class Ticket
 {
     private int $id;
-    private Customer $client;
+    private Customer $customer;
     private string $movie;
     private string $date;
     private string $startTime;
 
     public function __construct(
         int      $id,
-        Customer $client,
+        Customer $customer,
         string   $movie,
         string   $date,
         string   $startTime
     ) {
         $this->id = $id;
-        $this->client = $client;
+        $this->customer = $customer;
         $this->movie = $movie;
         $this->date = $date;
         $this->startTime = $startTime;

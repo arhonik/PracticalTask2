@@ -130,9 +130,8 @@ function viewTicket(\App\Domain\Booking\Entity\Ticket $ticket)
 {
     echo "    Индетификатор билета: " . $ticket->getId() . "\n";
     echo "    Информация о клиента: \n";
-    $client = $ticket->getClient();
-    echo "      Имя: " . $client->getName() . "\n";
-    echo "      Телефон: " . $client->getPhone() . "\n";
+    echo "      Имя: " . $ticket->getCustomerName() . "\n";
+    echo "      Телефон: " . $ticket->getCustomerPhone() . "\n";
     echo "      Название фильма: " . $ticket->getMovie() . " \n";
     echo "      Дата: " . $ticket->getDate() . "\n";
     echo "      Начианется в: " . $ticket->getStartTime() . "\n";
