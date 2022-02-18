@@ -13,7 +13,7 @@ class TicketsCollection implements \Countable
         return $this->tickets;
     }
 
-    public function add(Ticket$ticket)
+    public function add(Ticket $ticket)
     {
         $this->tickets[] = $ticket;
     }
