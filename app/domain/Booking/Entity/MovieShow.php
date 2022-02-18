@@ -85,7 +85,7 @@ class MovieShow
         return $this->ticketsCollection;
     }
 
-    public function getTicketsCollectionIterator(): TicketsIterator
+    public function getTicketsCollectionIterator(): \Iterator
     {
         return $this->ticketsCollection->getIterator();
     }
