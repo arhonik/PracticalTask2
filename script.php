@@ -69,11 +69,9 @@ foreach ($ticketsCollection->getIterator() as $item) {
     echo "      Начианется в : " . $item->getStartTime() . "\n";
     echo "\n";
 }
-$client = new \App\Domain\Booking\Entity\ValueObject\Client($clientDto->name, $clientDto->phone);
-$movieShowTicket = new \App\Domain\Helpers\MovieShowService();
 try {
-    $movieShowTicket->createTicket($movieShow, $client);
-} catch (\Exception $e) {
+    $movieShow->bookPlace($clientDto);
+} catch (\DomainException $e) {
     echo $e->getMessage();
     exit;
 }
