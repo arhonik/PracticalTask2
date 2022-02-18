@@ -3,8 +3,10 @@
 namespace App\Domain\Booking\Collection;
 
 use App\Domain\Booking\Entity\MovieShow;
+use Countable;
+use Iterator;
 
-class MovieShowCollection implements \Countable
+class MovieShowCollection implements Countable
 {
     private array $movieShow = [];
 
@@ -23,12 +25,12 @@ class MovieShowCollection implements \Countable
         return count($this->movieShow);
     }
 
-    public function getIterator(): \Iterator
+    public function getIterator(): Iterator
     {
         return new MovieShowIterator($this);
     }
 
-    public function getReverseIterator(): \Iterator
+    public function getReverseIterator(): Iterator
     {
         return new MovieShowIterator($this, true);
     }
