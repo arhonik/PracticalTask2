@@ -2,6 +2,8 @@
 
 namespace App\Domain\Booking\Entity\TransferObject;
 
+use InvalidArgumentException;
+
 class ClientDto
 {
     public string $name;
@@ -18,7 +20,7 @@ class ClientDto
     private static function assertCanBeArray(?array $data): void
     {
         if (!is_array($data)) {
-            throw new \InvalidArgumentException('Error type');
+            throw new InvalidArgumentException('Error type');
         }
     }
 }

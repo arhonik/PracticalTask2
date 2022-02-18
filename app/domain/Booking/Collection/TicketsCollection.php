@@ -3,8 +3,10 @@
 namespace App\Domain\Booking\Collection;
 
 use App\Domain\Booking\Entity\Ticket;
+use Countable;
+use Iterator;
 
-class TicketsCollection implements \Countable
+class TicketsCollection implements Countable
 {
     private array $tickets = [];
 
@@ -23,12 +25,12 @@ class TicketsCollection implements \Countable
         return count($this->tickets);
     }
 
-    public function getIterator(): \Iterator
+    public function getIterator(): Iterator
     {
         return new TicketsIterator($this);
     }
 
-    public function getReverseIterator(): \Iterator
+    public function getReverseIterator(): Iterator
     {
         return new TicketsIterator($this, true);
     }
