@@ -4,7 +4,7 @@ namespace App\Domain\Booking\Entity;
 
 use App\Domain\Booking\Collection\TicketsCollection;
 use App\Domain\Booking\Entity\TransferObject\ClientDto;
-use App\Domain\Booking\Entity\ValueObject\Client;
+use App\Domain\Booking\Entity\ValueObject\Customer;
 use App\Domain\Booking\Entity\ValueObject\Movie;
 use App\Domain\Booking\Entity\ValueObject\Hall;
 use App\Domain\Booking\Entity\ValueObject\Schedule;
@@ -38,7 +38,7 @@ class MovieShow
 
         $this->ticketsCollection->add(new Ticket(
             4,
-            new Client(
+            new Customer(
                 $client->name,
                 $client->phone
             ),

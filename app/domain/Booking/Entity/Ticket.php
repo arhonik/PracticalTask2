@@ -2,22 +2,22 @@
 
 namespace App\Domain\Booking\Entity;
 
-use App\Domain\Booking\Entity\ValueObject\Client;
+use App\Domain\Booking\Entity\ValueObject\Customer;
 
 class Ticket
 {
     private int $id;
-    private Client $client;
+    private Customer $client;
     private string $movie;
     private string $date;
     private string $startTime;
 
     public function __construct(
-        int $id,
-        Client $client,
-        string $movie,
-        string $date,
-        string $startTime
+        int      $id,
+        Customer $client,
+        string   $movie,
+        string   $date,
+        string   $startTime
     ) {
         $this->id = $id;
         $this->client = $client;
@@ -31,7 +31,7 @@ class Ticket
         return $this->id;
     }
 
-    public function getClient(): Client
+    public function getClient(): Customer
     {
         return $this->client;
     }

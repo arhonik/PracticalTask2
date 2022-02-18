@@ -2,7 +2,7 @@
 
 namespace App\Domain\Booking\Entity\ValueObject;
 
-class Client
+class Customer
 {
     private string $name;
     private string $phone;
