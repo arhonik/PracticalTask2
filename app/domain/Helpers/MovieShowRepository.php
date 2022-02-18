@@ -79,9 +79,10 @@ class MovieShowRepository implements MovieShowRepositoryInterface
                 100
             )
         );
-        $movieShow->bookPlace($ticket1);
-        $movieShow->bookPlace($ticket2);
-        $movieShow->bookPlace($ticket3);
+        $ticketsCollection = $movieShow->getTicketsCollection();
+        $ticketsCollection->add($ticket1);
+        $ticketsCollection->add($ticket2);
+        $ticketsCollection->add($ticket3);
         return $movieShow;
     }
 
