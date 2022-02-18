@@ -4,29 +4,37 @@ namespace App\Domain\Booking\Entity\ValueObject;
 
 class Schedule
 {
-    private string $date;
-    private string $startTime;
-    private string $endTime;
+    private \DateTimeInterface $startAt;
+    private \DateTimeInterface $endAt;
 
-    public function __construct(string $date, string $startTime, string $endTime)
+    public function __construct(string $startTime, string $endTime)
     {
-        $this->date = $date;
-        $this->startTime = $startTime;
-        $this->endTime = $endTime;
+        self::acceptCanBeConvertStringToDate($startTime);
+        $this->startAt = new \DateTimeImmutable("$startTime", new \DateTimeZone("Europe/Moscow"));
+
+        self::acceptCanBeConvertStringToDate($endTime);
+        $this->endAt = new \DateTimeImmutable("$endTime", new \DateTimeZone("Europe/Moscow"));
+    }
+
+    private static function acceptCanBeConvertStringToDate(string $string)
+    {
+        if (!strtotime($string)) {
+            throw new \DomainException('Can\'t convert string to date');
+        }
     }
 
     public function getDate(): string
     {
-        return $this->date;
+        return $this->startAt->format("j F");
     }
 
-    public function getStartTime(): string
+    public function getStartAt(): string
     {
-        return $this->startTime;
+        return $this->startAt->format("H:i");
     }
 
-    public function getEndTime(): string
+    public function getEndAt(): string
     {
-        return $this->endTime;
+        return $this->endAt->format("H:i");
     }
 }

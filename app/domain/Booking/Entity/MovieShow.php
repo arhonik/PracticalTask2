@@ -42,7 +42,7 @@ class MovieShow
             ),
             $this->movie->getTitle(),
             $this->schedule->getDate(),
-            $this->schedule->getStartTime()
+            $this->schedule->getStartAt()
         ));
     }
 
