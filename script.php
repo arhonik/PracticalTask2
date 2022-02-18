@@ -109,19 +109,7 @@ echo "  Характеристики кинозала:\n";
 $hall = $movieShow->getHall();
 echo "    Общее кол-во мест: " . $hall->getNumberOfPlaces() . "\n";
 echo "\n";
-echo "  Проданные билеты:\n";
-$ticketsCollection = $movieShow->getTicketsCollection();
-foreach ($ticketsCollection->getIterator() as $item) {
-    echo "    Индетификатор билета: " . $item->getId() . "\n";
-    echo "    Информация о клиента: \n";
-    $client = $item->getClient();
-    echo "      Имя: " . $client->getName() . "\n";
-    echo "      Телефон: " . $client->getPhone() . "\n";
-    echo "      Название фильма: " . $item->getMovie() . " \n";
-    echo "      Дата: " . $item->getDate() . "\n";
-    echo "      Начианется в  " . $item->getStartTime() . "\n";
-    echo "\n";
-}
+echo "\n";
 try {
     $movieShow->bookPlace($clientDto1);
     $movieShow->bookPlace($clientDto2);
