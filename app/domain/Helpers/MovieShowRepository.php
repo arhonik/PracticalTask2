@@ -35,36 +35,6 @@ class MovieShowRepository implements MovieShowRepositoryInterface
     public function findByTitleMovieAndSchedule(MovieShowDto $movieShowDto)
     {
         // TODO: Implement findByTitleMovieAndSchedule() method.
-        $ticket1 = new \App\Domain\Booking\Entity\Ticket(
-            1,
-            new \App\Domain\Booking\Entity\ValueObject\Client(
-                "John",
-                "+79027869474"
-            ),
-            "Venom 2",
-            "10 October",
-            "19:45"
-        );
-        $ticket2 = new \App\Domain\Booking\Entity\Ticket(
-            2,
-            new \App\Domain\Booking\Entity\ValueObject\Client(
-                "Michael",
-                "+79021879474"
-            ),
-            "Venom 2",
-            "10 October",
-            "19:45"
-        );
-        $ticket3 = new \App\Domain\Booking\Entity\Ticket(
-            3,
-            new \App\Domain\Booking\Entity\ValueObject\Client(
-                "Kirill",
-                "+79094869474"
-            ),
-            "Venom 2",
-            "10 October",
-            "19:45"
-        );
         $movieShow = new MovieShow(
             1,
             new Movie(
@@ -79,10 +49,6 @@ class MovieShowRepository implements MovieShowRepositoryInterface
                 100
             )
         );
-        $ticketsCollection = $movieShow->getTicketsCollection();
-        $ticketsCollection->add($ticket1);
-        $ticketsCollection->add($ticket2);
-        $ticketsCollection->add($ticket3);
         return $movieShow;
     }
 
