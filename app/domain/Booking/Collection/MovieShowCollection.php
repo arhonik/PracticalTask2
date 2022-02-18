@@ -6,9 +6,9 @@ use App\Domain\Booking\Entity\MovieShow;
 
 class MovieShowCollection implements \Countable
 {
-    private $movieShow = [];
+    private array $movieShow = [];
 
-    public function get()
+    public function get(): array
     {
         return $this->movieShow;
     }
