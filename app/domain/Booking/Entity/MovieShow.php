@@ -3,7 +3,6 @@
 namespace App\Domain\Booking\Entity;
 
 use App\Domain\Booking\Collection\TicketsCollection;
-use App\Domain\Booking\Collection\TicketsIterator;
 use App\Domain\Booking\Entity\TransferObject\ClientDto;
 use App\Domain\Booking\Entity\ValueObject\Client;
 use App\Domain\Booking\Entity\ValueObject\Movie;
