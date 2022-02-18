@@ -2,6 +2,8 @@
 
 namespace App\Domain\Booking\Entity\TransferObject;
 
+use InvalidArgumentException;
+
 class MovieShowDto
 {
     public string $titleMovie;
@@ -20,7 +22,7 @@ class MovieShowDto
     private static function assertCanBeArray(?array $data)
     {
         if (!is_array($data)) {
-            throw new \InvalidArgumentException('Error type');
+            throw new InvalidArgumentException('Error type');
         }
     }
 }
