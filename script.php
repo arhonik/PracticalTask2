@@ -34,7 +34,12 @@ try {
 }
 
 $repositoryMovieShow = new \App\Domain\Helpers\MovieShowRepository();
-$movieShow = $repositoryMovieShow->findByTitleMovieAndSchedule($movieShowDto);
+try {
+    $movieShow = $repositoryMovieShow->findByTitleMovieAndSchedule($movieShowDto);
+} catch (\DomainException $e) {
+    echo $e->getMessage();
+    exit;
+}
 echo "Найдена сущность киносеанса.\n";
 echo "\n";
 echo "Данные до бронирования:\n";
@@ -49,12 +54,12 @@ echo "\n";
 echo "  Расписание киносеанса:\n";
 $schedule = $movieShow->getSchedule();
 echo "    Дата:" . $schedule->getDate() . "\n";
-echo "    Начинается:" . $schedule->getStartTime() . "\n";
-echo "    Заканчивается: " . $schedule->getEndTime() . "\n";
+echo "    Начинается:" . $schedule->getStartAt() . "\n";
+echo "    Заканчивается: " . $schedule->getEndAt() . "\n";
 echo "\n";
 echo "  Характеристики кинозала:\n";
 $hall = $movieShow->getHall();
-echo "    Общее кол-во мест" . $hall->getNumberOfPlaces() . "\n";
+echo "    Общее кол-во мест: " . $hall->getNumberOfPlaces() . "\n";
 echo "\n";
 echo "  Проданные билеты:\n";
 $ticketsCollection = $movieShow->getTicketsCollection();
@@ -66,7 +71,7 @@ foreach ($ticketsCollection->getIterator() as $item) {
     echo "      Телефон: " . $client->getPhone() . "\n";
     echo "      Название фильма: " . $item->getMovie() . " \n";
     echo "      Дата: " . $item->getDate() . "\n";
-    echo "      Начианется в : " . $item->getStartTime() . "\n";
+    echo "      Начианется в  " . $item->getStartTime() . "\n";
     echo "\n";
 }
 try {
@@ -89,12 +94,12 @@ echo "\n";
 echo "  Расписание киносеанса:\n";
 $schedule = $movieShow->getSchedule();
 echo "    Дата:" . $schedule->getDate() . "\n";
-echo "    Начинается:" . $schedule->getStartTime() . "\n";
-echo "    Заканчивается: " . $schedule->getEndTime() . "\n";
+echo "    Начинается:" . $schedule->getStartAt() . "\n";
+echo "    Заканчивается: " . $schedule->getEndAt() . "\n";
 echo "\n";
 echo "  Характеристики кинозала:\n";
 $hall = $movieShow->getHall();
-echo "    Общее кол-во мест" . $hall->getNumberOfPlaces() . "\n";
+echo "    Общее кол-во мест:" . $hall->getNumberOfPlaces() . "\n";
 echo "\n";
 echo "  Проданные билеты:\n";
 $ticketsCollection = $movieShow->getTicketsCollection();
@@ -106,6 +111,6 @@ foreach ($ticketsCollection->getIterator() as $item) {
     echo "      Телефон: " . $client->getPhone() . "\n";
     echo "      Название фильма: " . $item->getMovie() . " \n";
     echo "      Дата: " . $item->getDate() . "\n";
-    echo "      Начианется в : " . $item->getStartTime() . "\n";
+    echo "      Начианется в: " . $item->getStartTime() . "\n";
     echo "\n";
 }

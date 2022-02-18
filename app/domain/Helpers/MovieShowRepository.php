@@ -42,7 +42,7 @@ class MovieShowRepository implements MovieShowRepositoryInterface
                 "+79027869474"
             ),
             "Venom 2",
-            "10 октября",
+            "10 October",
             "19:45"
         );
         $ticket2 = new \App\Domain\Booking\Entity\Ticket(
@@ -52,7 +52,7 @@ class MovieShowRepository implements MovieShowRepositoryInterface
                 "+79021879474"
             ),
             "Venom 2",
-            "10 октября",
+            "10 October",
             "19:45"
         );
         $ticket3 = new \App\Domain\Booking\Entity\Ticket(
@@ -62,7 +62,7 @@ class MovieShowRepository implements MovieShowRepositoryInterface
                 "+79094869474"
             ),
             "Venom 2",
-            "10 октября",
+            "10 October",
             "19:45"
         );
         $movieShow = new MovieShow(
@@ -72,9 +72,8 @@ class MovieShowRepository implements MovieShowRepositoryInterface
                 "1ч 25м"
             ),
             new Schedule(
-                "10 октября",
-                "19:45",
-                "21:10"
+                "10 October 2022 19:45",
+                "10 October 2022 21:10",
             ),
             new Hall(
                 100
