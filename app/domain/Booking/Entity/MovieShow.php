@@ -53,18 +53,22 @@ class MovieShow
         return $this->ticketsCollection;
     }
 
-    public function checkIfFreePlaces(): bool
+    public static function checkIfFreePlaces(TicketsCollection $ticketsCollection, int $numberOfPlaces): bool
     {
-        $freePlaces = $this->hall->getNumberOfPlaces() - $this->ticketsCollection->count();
-        if ($freePlaces > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        $freePlaces = $numberOfPlaces - $ticketsCollection->count();
+        return $freePlaces > 0;
     }
 
     public function bookPlace(Ticket $ticket)
     {
+        self::assertCanBeAddTicket($this->getTicketsCollection(), $this->hall->getNumberOfPlaces());
         $this->ticketsCollection->add($ticket);
+    }
+
+    private static function assertCanBeAddTicket(TicketsCollection $ticketsCollection, int $numberOfPlaces)
+    {
+        if (!self::checkIfFreePlaces($ticketsCollection, $numberOfPlaces)) {
+            throw new \DomainException('No free places');
+        }
     }
 }
