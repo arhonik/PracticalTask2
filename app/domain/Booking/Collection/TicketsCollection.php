@@ -3,7 +3,6 @@
 namespace App\Domain\Booking\Collection;
 
 use App\Domain\Booking\Entity\Ticket;
-use App\Domain\Helpers\TicketsIterator;
 
 class TicketsCollection implements \Countable
 {
