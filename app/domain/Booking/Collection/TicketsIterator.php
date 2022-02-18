@@ -3,12 +3,13 @@
 namespace App\Domain\Booking\Collection;
 
 use App\Domain\Booking\Entity\Ticket;
+use Iterator;
 
-class TicketsIterator implements \Iterator
+class TicketsIterator implements Iterator
 {
     private TicketsCollection $collection;
     private int $position = 0;
-    private bool $reverse = false;
+    private bool $reverse;
 
     public function __construct(TicketsCollection $collection, $reverse = false)
     {
