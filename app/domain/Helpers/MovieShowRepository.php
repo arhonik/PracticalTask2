@@ -3,7 +3,6 @@
 namespace App\Domain\Helpers;
 
 use App\Domain\Booking\Collection\MovieShowCollection;
-use App\Domain\Booking\Collection\TicketsCollection;
 use App\Domain\Booking\Entity\ValueObject\Schedule;
 use App\Domain\Booking\Entity\MovieShow;
 use App\Domain\Booking\Entity\TransferObject\MovieShowDto;
@@ -21,28 +20,7 @@ class MovieShowRepository implements MovieShowRepositoryInterface
     public function findById(int $id): MovieShow
     {
         // TODO: Implement findById() method.
-        $ticketsCollection = new TicketsCollection();
         return new MovieShow(
-            1,
-            new Movie(
-                "Venom 2",
-                "1 hour 25 minutes"
-            ),
-            new Schedule(
-                "10 октября",
-                "19:45",
-                "21:10"
-            ),
-            new Hall(
-                100
-            )
-        );
-    }
-
-    public function findByTitleMovieAndSchedule(MovieShowDto $movieShowDto): MovieShow
-    {
-        // TODO: Implement findByTitleMovieAndSchedule() method.
-        $movieShow = new MovieShow(
             1,
             new Movie(
                 "Venom 2",
@@ -56,7 +34,25 @@ class MovieShowRepository implements MovieShowRepositoryInterface
                 100
             )
         );
-        return $movieShow;
+    }
+
+    public function findByTitleMovieAndSchedule(MovieShowDto $movieShowDto): MovieShow
+    {
+        // TODO: Implement findByTitleMovieAndSchedule() method.
+        return new MovieShow(
+            1,
+            new Movie(
+                "Venom 2",
+                "1 hour 25 minutes"
+            ),
+            new Schedule(
+                "10 October 2022 19:45",
+                "10 October 2022 21:10",
+            ),
+            new Hall(
+                100
+            )
+        );
     }
 
     public function save(MovieShow $movieShow)
