@@ -3,12 +3,13 @@
 namespace App\Domain\Booking\Collection;
 
 use App\Domain\Booking\Entity\MovieShow;
+use Iterator;
 
-class MovieShowIterator implements \Iterator
+class MovieShowIterator implements Iterator
 {
     private MovieShowCollection $collection;
     private int $position = 0;
-    private bool $reverse = false;
+    private bool $reverse;
 
     public function __construct(MovieShowCollection $collection, $reverse = false)
     {
