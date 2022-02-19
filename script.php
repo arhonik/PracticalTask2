@@ -108,13 +108,13 @@ function viewMovieShow(\App\Domain\Booking\Entity\MovieShow $movieShow)
     echo "  Индетификатор киносеанса: " . $movieShow->getId() . "\n";
     echo "\n";
     echo "  Данные фильма:\n";
-    echo "    Название: ". $movieShow->getMovieTitle() ."\n";
-    echo "    Продолжительность: ". $movieShow->getMovieDuration() ."\n";
+    echo "    Название: ". $movieShow->getTitle() ."\n";
+    echo "    Продолжительность: ". $movieShow->getDuration() ."\n";
     echo "\n";
     echo "  Расписание киносеанса:\n";
-    echo "    Дата:" . $movieShow->getScheduleDate() . "\n";
-    echo "    Начинается:" . $movieShow->getScheduleStartAt() . "\n";
-    echo "    Заканчивается: " . $movieShow->getScheduleEndAt() . "\n";
+    echo "    Дата:" . $movieShow->getDate() . "\n";
+    echo "    Начинается:" . $movieShow->getStartAt() . "\n";
+    echo "    Заканчивается: " . $movieShow->getEndAt() . "\n";
     echo "\n";
     echo "  Характеристики кинозала:\n";
     echo "    Кол-во свободных мест: " . $movieShow->getNumberOfAvailablePlacesForBooking() . "\n";

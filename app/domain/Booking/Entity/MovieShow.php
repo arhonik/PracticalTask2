@@ -42,7 +42,7 @@ class MovieShow
                 $client->name,
                 $client->phone
             ),
-            $this->getMovieTitle(),
+            $this->getTitle(),
             $this->schedule->getDate(),
             $this->schedule->getStartAt()
         ));
@@ -66,27 +66,27 @@ class MovieShow
         return $this->id;
     }
 
-    public function getMovieTitle(): string
+    public function getTitle(): string
     {
         return $this->movie->getTitle();
     }
 
-    public function getMovieDuration(): string
+    public function getDuration(): string
     {
         return $this->movie->getDuration();
     }
 
-    public function getScheduleDate(): string
+    public function getDate(): string
     {
         return $this->schedule->getDate();
     }
 
-    public function getScheduleStartAt(): string
+    public function getStartAt(): string
     {
         return $this->schedule->getStartAt();
     }
 
-    public function getScheduleEndAt(): string
+    public function getEndAt(): string
     {
         return $this->schedule->getEndAt();
     }
