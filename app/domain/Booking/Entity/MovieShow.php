@@ -8,6 +8,7 @@ use App\Domain\Booking\Entity\ValueObject\Customer;
 use App\Domain\Booking\Entity\ValueObject\Movie;
 use App\Domain\Booking\Entity\ValueObject\Hall;
 use App\Domain\Booking\Entity\ValueObject\Schedule;
+use DateTimeInterface;
 use DomainException;
 use Iterator;
 
@@ -43,8 +44,7 @@ class MovieShow
                 $client->phone
             ),
             $this->getTitle(),
-            $this->schedule->getDate(),
-            $this->schedule->getStartAt()
+            $this->schedule->getStartAt(),
         ));
     }
 
@@ -76,17 +76,12 @@ class MovieShow
         return $this->movie->getDuration();
     }
 
-    public function getDate(): string
-    {
-        return $this->schedule->getDate();
-    }
-
-    public function getStartAt(): string
+    public function getStartAt(): DateTimeInterface
     {
         return $this->schedule->getStartAt();
     }
 
-    public function getEndAt(): string
+    public function getEndAt(): DateTimeInterface
     {
         return $this->schedule->getEndAt();
     }

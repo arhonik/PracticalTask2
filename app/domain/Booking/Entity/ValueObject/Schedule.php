@@ -2,44 +2,26 @@
 
 namespace App\Domain\Booking\Entity\ValueObject;
 
-use DateTimeImmutable;
 use DateTimeInterface;
-use DateTimeZone;
-use DomainException;
 
 class Schedule
 {
     private DateTimeInterface $startAt;
     private DateTimeInterface $endAt;
 
-    public function __construct(string $startTime, string $endTime)
+    public function __construct(DateTimeInterface $startTime, DateTimeInterface $endTime)
     {
-        self::acceptCanBeConvertStringToDate($startTime);
-        $this->startAt = new DateTimeImmutable("$startTime", new DateTimeZone("Europe/Moscow"));
-
-        self::acceptCanBeConvertStringToDate($endTime);
-        $this->endAt = new DateTimeImmutable("$endTime", new DateTimeZone("Europe/Moscow"));
+        $this->startAt = $startTime;
+        $this->endAt = $endTime;
     }
 
-    private static function acceptCanBeConvertStringToDate(string $string)
+    public function getStartAt(): DateTimeInterface
     {
-        if (!strtotime($string)) {
-            throw new DomainException('Can\'t convert string to date');
-        }
+        return $this->startAt;
     }
 
-    public function getDate(): string
+    public function getEndAt(): DateTimeInterface
     {
-        return $this->startAt->format("j F");
-    }
-
-    public function getStartAt(): string
-    {
-        return $this->startAt->format("H:i");
-    }
-
-    public function getEndAt(): string
-    {
-        return $this->endAt->format("H:i");
+        return $this->endAt;
     }
 }

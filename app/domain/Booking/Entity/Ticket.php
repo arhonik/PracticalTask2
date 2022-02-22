@@ -9,20 +9,17 @@ class Ticket
     private int $id;
     private Customer $customer;
     private string $movie;
-    private string $date;
-    private string $startTime;
+    private \DateTimeInterface $startTime;
 
     public function __construct(
-        int      $id,
+        int $id,
         Customer $customer,
-        string   $movie,
-        string   $date,
-        string   $startTime
+        string $movie,
+        \DateTimeInterface $startTime
     ) {
         $this->id = $id;
         $this->customer = $customer;
         $this->movie = $movie;
-        $this->date = $date;
         $this->startTime = $startTime;
     }
 
@@ -46,12 +43,7 @@ class Ticket
         return $this->movie;
     }
 
-    public function getDate(): string
-    {
-        return $this->date;
-    }
-
-    public function getStartTime(): string
+    public function getStartTime(): \DateTimeInterface
     {
         return $this->startTime;
     }
