@@ -2,18 +2,13 @@
 require_once __DIR__.'/autoload.php';
 require_once __DIR__.'/vendor/autoload.php';
 
-use Symfony\Component\Uid\Uuid;
-
-$id = Uuid::v4();
-var_dump($id);
 $data[0] = array(
     "name" => "Kirill",
     "phone" => "+79094869474"
 );
 $data[1] = array(
     "titleMovie" => "Venom 2",
-    "date" => "10 October",
-    "startTime" => "19:45"
+    "startTime" => "2022-10-10 19:45"
 );
 $data[2] = array(
     "name" => "John",
@@ -21,8 +16,7 @@ $data[2] = array(
 );
 $data[3] = array(
     "titleMovie" => "Venom 2",
-    "date" => "10 October",
-    "startTime" => "19:45"
+    "startTime" => "2022-10-10 19:45"
 );
 $data[4] = array(
     "name" => "Michael",
@@ -30,8 +24,7 @@ $data[4] = array(
 );
 $data[5] = array(
     "titleMovie" => "Venom 2",
-    "date" => "10 October",
-    "startTime" => "19:45"
+    "startTime" => "2022-10-10 19:45"
 );
 
 try {
@@ -100,8 +93,8 @@ function viewMovieShowDto(\App\Domain\Booking\Entity\TransferObject\MovieShowDto
 {
     echo "Объект передачи данных Киносеанса создан:\n";
     echo "Название фильма: " . $movieShowDto->titleMovie . "\n";
-    echo "Дата показа: ". $movieShowDto->date ."\n";
-    echo "Время начало показа: ". $movieShowDto->startTime ."\n";
+    echo "Дата показа: ". $movieShowDto->startTime->format("j F") ."\n";
+    echo "Время начало показа: ". $movieShowDto->startTime->format("H:i") ."\n";
     echo "\n";
     echo "\n";
 }
@@ -116,9 +109,9 @@ function viewMovieShow(\App\Domain\Booking\Entity\MovieShow $movieShow)
     echo "    Продолжительность: ". $movieShow->getDuration() ."\n";
     echo "\n";
     echo "  Расписание киносеанса:\n";
-    echo "    Дата:" . $movieShow->getDate() . "\n";
-    echo "    Начинается:" . $movieShow->getStartAt() . "\n";
-    echo "    Заканчивается: " . $movieShow->getEndAt() . "\n";
+    echo "    Дата:" . $movieShow->getStartAt()->format("j F") . "\n";
+    echo "    Начинается:" . $movieShow->getStartAt()->format("H:i") . "\n";
+    echo "    Заканчивается: " . $movieShow->getEndAt()->format("H:i") . "\n";
     echo "\n";
     echo "  Характеристики кинозала:\n";
     echo "    Кол-во свободных мест: " . $movieShow->getNumberOfAvailablePlacesForBooking() . "\n";
@@ -137,7 +130,7 @@ function viewTicket(\App\Domain\Booking\Entity\Ticket $ticket)
     echo "      Имя: " . $ticket->getCustomerName() . "\n";
     echo "      Телефон: " . $ticket->getCustomerPhone() . "\n";
     echo "      Название фильма: " . $ticket->getMovie() . " \n";
-    echo "      Дата: " . $ticket->getDate() . "\n";
-    echo "      Начианется в: " . $ticket->getStartTime() . "\n";
+    echo "      Дата: " . $ticket->getStartTime()->format("j F") . "\n";
+    echo "      Начианется в: " . $ticket->getStartTime()->format("H:i") . "\n";
     echo "\n";
 }
