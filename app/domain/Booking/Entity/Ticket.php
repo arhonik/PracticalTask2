@@ -3,6 +3,7 @@
 namespace App\Domain\Booking\Entity;
 
 use App\Domain\Booking\Entity\ValueObject\Customer;
+use DateTimeInterface;
 use Symfony\Component\Uid\Uuid;
 
 class Ticket
@@ -10,13 +11,13 @@ class Ticket
     private Uuid $id;
     private Customer $customer;
     private string $movie;
-    private \DateTimeInterface $startTime;
+    private DateTimeInterface $startTime;
 
     public function __construct(
         Uuid $id,
         Customer $customer,
         string $movie,
-        \DateTimeInterface $startTime
+        DateTimeInterface $startTime
     ) {
         $this->id = $id;
         $this->customer = $customer;
@@ -44,7 +45,7 @@ class Ticket
         return $this->movie;
     }
 
-    public function getStartTime(): \DateTimeInterface
+    public function getStartTime(): DateTimeInterface
     {
         return $this->startTime;
     }
