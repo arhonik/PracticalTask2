@@ -14,7 +14,7 @@ class Movie
     {
         $this->title = $title;
 
-        self::acceptCanBeConvertStringToTime($duration);
+        self::acceptShouldBeConvertStringToTime($duration);
         $this->duration = DateInterval::createFromDateString($duration);
     }
 
@@ -28,7 +28,7 @@ class Movie
         return $this->duration;
     }
 
-    private static function acceptCanBeConvertStringToTime(string $string): void
+    private static function acceptShouldBeConvertStringToTime(string $string): void
     {
         if (!strtotime($string)) {
             throw new DomainException('Can\'t convert string to time');
