@@ -8,6 +8,9 @@ use App\Domain\Booking\Entity\MovieShow;
 use App\Domain\Booking\Entity\TransferObject\MovieShowDto;
 use App\Domain\Booking\Entity\ValueObject\Movie;
 use App\Domain\Booking\Entity\ValueObject\Hall;
+use DateTimeImmutable;
+use DateTimeZone;
+use Symfony\Component\Uid\Uuid;
 
 class MovieShowRepository implements MovieShowRepositoryInterface
 {
@@ -21,14 +24,22 @@ class MovieShowRepository implements MovieShowRepositoryInterface
     {
         // TODO: Implement findById() method.
         return new MovieShow(
-            1,
+            Uuid::v4(),
             new Movie(
                 "Venom 2",
                 "1 hour 25 minutes"
             ),
             new Schedule(
-                "10 October 2022 19:45",
-                "10 October 2022 21:10",
+                DateTimeImmutable::createFromFormat(
+                    "Y-m-d H:i",
+                    "2022-10-10 19:45",
+                    new DateTimeZone("Europe/Moscow")
+                ),
+                DateTimeImmutable::createFromFormat(
+                    "Y-m-d H:i",
+                    "2022-10-10 21:10",
+                    new DateTimeZone("Europe/Moscow")
+                ),
             ),
             new Hall(
                 100
@@ -39,15 +50,35 @@ class MovieShowRepository implements MovieShowRepositoryInterface
     public function findByTitleMovieAndSchedule(MovieShowDto $movieShowDto): MovieShow
     {
         // TODO: Implement findByTitleMovieAndSchedule() method.
+        var_dump(new Schedule(
+            DateTimeImmutable::createFromFormat(
+                "Y-m-d H:i",
+                "2022-10-10 19:45",
+                new DateTimeZone("Europe/Moscow")
+            ),
+            DateTimeImmutable::createFromFormat(
+                "Y-m-d H:i",
+                "2022-10-10 21:10",
+                new DateTimeZone("Europe/Moscow")
+            )
+        ));
         return new MovieShow(
-            1,
+            Uuid::v4(),
             new Movie(
                 "Venom 2",
                 "1 hour 25 minutes"
             ),
             new Schedule(
-                "10 October 2022 19:45",
-                "10 October 2022 21:10",
+                DateTimeImmutable::createFromFormat(
+                    "Y-m-d H:i",
+                    "2022-10-10 19:45",
+                    new DateTimeZone("Europe/Moscow")
+                ),
+                DateTimeImmutable::createFromFormat(
+                    "Y-m-d H:i",
+                    "2022-10-10 21:10",
+                    new DateTimeZone("Europe/Moscow")
+                ),
             ),
             new Hall(
                 100
