@@ -18,22 +18,22 @@ class MovieShowInfo
         $this->freePlace = $freePlace;
     }
 
-    public function getTitle(): string
+    public function getMovieTitle(): string
     {
         return $this->movie->getTitle();
     }
 
-    public function getDuration(): DateInterval
+    public function getMovieDuration(): DateInterval
     {
         return $this->movie->getDuration();
     }
 
-    public function getStartAt(): DateTimeInterface
+    public function getScheduleStartAt(): DateTimeInterface
     {
         return $this->schedule->getStartAt();
     }
 
-    public function getEndAt(): DateTimeInterface
+    public function getScheduleEndAt(): DateTimeInterface
     {
         return $this->schedule->getEndAt();
     }

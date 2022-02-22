@@ -104,13 +104,13 @@ function viewMovieShow(\App\Domain\Booking\Entity\MovieShow $movieShow)
     $movieShowInfo = $movieShow->getMovieShowInfo();
     echo "\n";
     echo "  Данные фильма:\n";
-    echo "    Название: ". $movieShowInfo->getTitle() ."\n";
-    echo "    Продолжительность: ". $movieShowInfo->getDuration()->format("%h:%i") ."\n";
+    echo "    Название: ". $movieShowInfo->getMovieTitle() ."\n";
+    echo "    Продолжительность: ". $movieShowInfo->getMovieDuration()->format("%h:%i") ."\n";
     echo "\n";
     echo "  Расписание киносеанса:\n";
-    echo "    Дата:" . $movieShowInfo->getStartAt()->format("j F") . "\n";
-    echo "    Начинается:" . $movieShowInfo->getStartAt()->format("H:i") . "\n";
-    echo "    Заканчивается: " . $movieShowInfo->getEndAt()->format("H:i") . "\n";
+    echo "    Дата:" . $movieShowInfo->getScheduleStartAt()->format("j F") . "\n";
+    echo "    Начинается:" . $movieShowInfo->getScheduleStartAt()->format("H:i") . "\n";
+    echo "    Заканчивается: " . $movieShowInfo->getScheduleEndAt()->format("H:i") . "\n";
     echo "\n";
     echo "  Характеристики кинозала:\n";
     echo "    Кол-во свободных мест: " . $movieShowInfo->getFreePlace() . "\n";
