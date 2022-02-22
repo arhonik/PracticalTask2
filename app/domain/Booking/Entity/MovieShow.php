@@ -7,8 +7,8 @@ use App\Domain\Booking\Entity\TransferObject\ClientDto;
 use App\Domain\Booking\Entity\ValueObject\Customer;
 use App\Domain\Booking\Entity\ValueObject\Movie;
 use App\Domain\Booking\Entity\ValueObject\Hall;
+use App\Domain\Booking\Entity\ValueObject\MovieShowInfo;
 use App\Domain\Booking\Entity\ValueObject\Schedule;
-use DateTimeInterface;
 use DomainException;
 use Iterator;
 use Symfony\Component\Uid\Uuid;
@@ -44,7 +44,7 @@ class MovieShow
                 $client->name,
                 $client->phone
             ),
-            $this->getTitle(),
+            $this->movie->getTitle(),
             $this->schedule->getStartAt(),
         ));
     }
@@ -62,29 +62,13 @@ class MovieShow
         return $freePlaces > 0;
     }
 
-    public function getId(): Uuid
+    public function getMovieShowInfo(): MovieShowInfo
     {
-        return $this->id;
-    }
-
-    public function getTitle(): string
-    {
-        return $this->movie->getTitle();
-    }
-
-    public function getDuration(): string
-    {
-        return $this->movie->getDuration();
-    }
-
-    public function getStartAt(): DateTimeInterface
-    {
-        return $this->schedule->getStartAt();
-    }
-
-    public function getEndAt(): DateTimeInterface
-    {
-        return $this->schedule->getEndAt();
+        return new MovieShowInfo(
+            $this->movie,
+            $this->schedule,
+            $this->getNumberOfAvailablePlacesForBooking()
+        );
     }
 
     public function getNumberOfAvailablePlacesForBooking(): int

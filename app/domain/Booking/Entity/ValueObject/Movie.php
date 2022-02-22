@@ -23,9 +23,9 @@ class Movie
         return $this->title;
     }
 
-    public function getDuration(): string
+    public function getDuration(): DateInterval
     {
-        return $this->duration->format("%hч. %iмин.");
+        return $this->duration;
     }
 
     private static function acceptCanBeConvertStringToTime(string $string): void

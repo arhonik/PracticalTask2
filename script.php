@@ -101,20 +101,19 @@ function viewMovieShowDto(\App\Domain\Booking\Entity\TransferObject\MovieShowDto
 
 function viewMovieShow(\App\Domain\Booking\Entity\MovieShow $movieShow)
 {
-    echo "\n";
-    echo "  Индетификатор киносеанса: " . $movieShow->getId() . "\n";
+    $movieShowInfo = $movieShow->getMovieShowInfo();
     echo "\n";
     echo "  Данные фильма:\n";
-    echo "    Название: ". $movieShow->getTitle() ."\n";
-    echo "    Продолжительность: ". $movieShow->getDuration() ."\n";
+    echo "    Название: ". $movieShowInfo->getTitle() ."\n";
+    echo "    Продолжительность: ". $movieShowInfo->getDuration()->format("%h:%i") ."\n";
     echo "\n";
     echo "  Расписание киносеанса:\n";
-    echo "    Дата:" . $movieShow->getStartAt()->format("j F") . "\n";
-    echo "    Начинается:" . $movieShow->getStartAt()->format("H:i") . "\n";
-    echo "    Заканчивается: " . $movieShow->getEndAt()->format("H:i") . "\n";
+    echo "    Дата:" . $movieShowInfo->getStartAt()->format("j F") . "\n";
+    echo "    Начинается:" . $movieShowInfo->getStartAt()->format("H:i") . "\n";
+    echo "    Заканчивается: " . $movieShowInfo->getEndAt()->format("H:i") . "\n";
     echo "\n";
     echo "  Характеристики кинозала:\n";
-    echo "    Кол-во свободных мест: " . $movieShow->getNumberOfAvailablePlacesForBooking() . "\n";
+    echo "    Кол-во свободных мест: " . $movieShowInfo->getFreePlace() . "\n";
     echo "  Проданные билеты:\n";
     foreach ($movieShow->getTicketsCollectionIterator() as $item) {
         viewTicket($item);
