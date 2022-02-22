@@ -42,7 +42,7 @@ class MovieShow
             Uuid::v4(),
             new Customer(
                 $client->name,
-                $client->phone
+                $client->phone,
             ),
             $this->movie->getTitle(),
             $this->schedule->getStartAt(),
@@ -67,7 +67,7 @@ class MovieShow
         return new MovieShowInfo(
             $this->movie,
             $this->schedule,
-            $this->getNumberOfAvailablePlacesForBooking()
+            $this->getNumberOfAvailablePlacesForBooking(),
         );
     }
 
