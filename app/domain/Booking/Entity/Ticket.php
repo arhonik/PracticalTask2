@@ -3,16 +3,17 @@
 namespace App\Domain\Booking\Entity;
 
 use App\Domain\Booking\Entity\ValueObject\Customer;
+use Symfony\Component\Uid\Uuid;
 
 class Ticket
 {
-    private int $id;
+    private Uuid $id;
     private Customer $customer;
     private string $movie;
     private \DateTimeInterface $startTime;
 
     public function __construct(
-        int $id,
+        Uuid $id,
         Customer $customer,
         string $movie,
         \DateTimeInterface $startTime
@@ -23,7 +24,7 @@ class Ticket
         $this->startTime = $startTime;
     }
 
-    public function getId(): int
+    public function getId(): Uuid
     {
         return $this->id;
     }

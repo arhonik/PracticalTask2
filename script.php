@@ -1,7 +1,11 @@
 <?php
-
+require_once __DIR__.'/autoload.php';
 require_once __DIR__.'/vendor/autoload.php';
 
+use Symfony\Component\Uid\Uuid;
+
+$id = Uuid::v4();
+var_dump($id);
 $data[0] = array(
     "name" => "Kirill",
     "phone" => "+79094869474"

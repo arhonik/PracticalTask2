@@ -11,17 +11,18 @@ use App\Domain\Booking\Entity\ValueObject\Schedule;
 use DateTimeInterface;
 use DomainException;
 use Iterator;
+use Symfony\Component\Uid\Uuid;
 
 class MovieShow
 {
-    private int $id;
+    private Uuid $id;
     private Movie $movie;
     private Schedule $schedule;
     private Hall $hall;
     private TicketsCollection $ticketsCollection;
 
     public function __construct(
-        int $id,
+        Uuid $id,
         Movie $movie,
         Schedule $schedule,
         Hall $hall
@@ -38,7 +39,7 @@ class MovieShow
         self::assertCanBeAddTicket($this->getTicketsCollection(), $this->hall->getNumberOfPlaces());
 
         $this->ticketsCollection->add(new Ticket(
-            4,
+            Uuid::v4(),
             new Customer(
                 $client->name,
                 $client->phone
@@ -61,7 +62,7 @@ class MovieShow
         return $freePlaces > 0;
     }
 
-    public function getId(): int
+    public function getId(): Uuid
     {
         return $this->id;
     }
