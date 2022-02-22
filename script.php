@@ -28,19 +28,19 @@ $data[5] = array(
 );
 
 try {
-    $clientDto1 = new \App\Domain\Booking\Entity\TransferObject\ClientDto();
+    $clientDto1 = new \App\Domain\Booking\Entity\TransferObject\CustomerDto();
     $clientDto1->load($data[0]);
     viewClientDto($clientDto1);
     $movieShowDto1 = new \App\Domain\Booking\Entity\TransferObject\MovieShowDto();
     $movieShowDto1->load($data[1]);
     viewMovieShowDto($movieShowDto1);
-    $clientDto2 = new \App\Domain\Booking\Entity\TransferObject\ClientDto();
+    $clientDto2 = new \App\Domain\Booking\Entity\TransferObject\CustomerDto();
     $clientDto2->load($data[2]);
     viewClientDto($clientDto2);
     $movieShowDto2 = new \App\Domain\Booking\Entity\TransferObject\MovieShowDto();
     $movieShowDto2->load($data[3]);
     viewMovieShowDto($movieShowDto2);
-    $clientDto3 = new \App\Domain\Booking\Entity\TransferObject\ClientDto();
+    $clientDto3 = new \App\Domain\Booking\Entity\TransferObject\CustomerDto();
     $clientDto3->load($data[4]);
     viewClientDto($clientDto3);
     $movieShowDto3 = new \App\Domain\Booking\Entity\TransferObject\MovieShowDto();
@@ -80,7 +80,7 @@ try {
 echo "Приобритен новый билет\n";
 viewMovieShow($movieShow);
 
-function viewClientDto(\App\Domain\Booking\Entity\TransferObject\ClientDto $clientDto)
+function viewClientDto(\App\Domain\Booking\Entity\TransferObject\CustomerDto $clientDto)
 {
     echo "Объект передачи данных клиента создан:\n";
     echo "Имя: " . $clientDto->name . "\n";

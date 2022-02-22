@@ -4,7 +4,7 @@ namespace App\Domain\Booking\Entity\TransferObject;
 
 use InvalidArgumentException;
 
-class ClientDto
+class CustomerDto
 {
     public string $name;
     public string $phone;
