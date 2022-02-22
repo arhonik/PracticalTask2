@@ -28,7 +28,7 @@ class Movie
         return $this->duration->format("%hч. %iмин.");
     }
 
-    private static function acceptCanBeConvertStringToTime(string $string)
+    private static function acceptCanBeConvertStringToTime(string $string): void
     {
         if (!strtotime($string)) {
             throw new DomainException('Can\'t convert string to time');

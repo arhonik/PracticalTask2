@@ -34,7 +34,7 @@ class MovieShow
         $this->ticketsCollection = new TicketsCollection();
     }
 
-    public function bookPlace(ClientDto $client)
+    public function bookPlace(ClientDto $client): void
     {
         self::assertCanBeAddTicket($this->getTicketsCollection(), $this->hall->getNumberOfPlaces());
 
@@ -49,7 +49,7 @@ class MovieShow
         ));
     }
 
-    private static function assertCanBeAddTicket(TicketsCollection $ticketsCollection, int $numberOfPlaces)
+    private static function assertCanBeAddTicket(TicketsCollection $ticketsCollection, int $numberOfPlaces): void
     {
         if (!self::checkIfFreePlaces($ticketsCollection, $numberOfPlaces)) {
             throw new DomainException('No free places');

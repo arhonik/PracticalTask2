@@ -14,5 +14,5 @@ interface MovieShowRepositoryInterface
 
     public function findByTitleMovieAndSchedule(MovieShowDto $movieShowDto): MovieShow;
 
-    public function save(MovieShow $movieShow);
+    public function save(MovieShow $movieShow): void;
 }

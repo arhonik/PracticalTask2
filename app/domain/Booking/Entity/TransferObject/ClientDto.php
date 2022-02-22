@@ -9,7 +9,7 @@ class ClientDto
     public string $name;
     public string $phone;
 
-    public function load(?array $data)
+    public function load(?array $data): void
     {
         self::assertCanBeArray($data);
 

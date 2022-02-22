@@ -86,7 +86,7 @@ class MovieShowRepository implements MovieShowRepositoryInterface
         );
     }
 
-    public function save(MovieShow $movieShow)
+    public function save(MovieShow $movieShow): void
     {
         // TODO: Implement save() method.
     }

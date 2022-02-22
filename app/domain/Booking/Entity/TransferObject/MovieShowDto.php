@@ -12,7 +12,7 @@ class MovieShowDto
     public string $titleMovie;
     public DateTimeInterface $startTime;
 
-    public function load(?array $data)
+    public function load(?array $data): void
     {
         self::assertCanBeArray($data);
 
@@ -24,7 +24,7 @@ class MovieShowDto
         );
     }
 
-    private static function assertCanBeArray(?array $data)
+    private static function assertCanBeArray(?array $data): void
     {
         if (!is_array($data)) {
             throw new InvalidArgumentException('Error type');
