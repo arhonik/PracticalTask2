@@ -42,6 +42,4 @@ class MovieShowInfo
     {
         return $this->freePlace;
     }
-
-
 }

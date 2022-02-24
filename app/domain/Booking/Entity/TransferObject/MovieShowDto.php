@@ -30,6 +30,4 @@ class MovieShowDto
             throw new InvalidArgumentException('Error type');
         }
     }
-
-
 }
